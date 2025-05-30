@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbEmployeeSearch = new System.Windows.Forms.TextBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
@@ -90,20 +90,62 @@
             this.tbRecordID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbOtherInfo = new System.Windows.Forms.TabPage();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.tbCardNumber = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tbBankNumber = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.tbAccountNumber = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.dtEndo = new System.Windows.Forms.DateTimePicker();
+            this.label31 = new System.Windows.Forms.Label();
+            this.dtRegular = new System.Windows.Forms.DateTimePicker();
+            this.label30 = new System.Windows.Forms.Label();
+            this.dtHired = new System.Windows.Forms.DateTimePicker();
+            this.label29 = new System.Windows.Forms.Label();
+            this.cmbSalType = new System.Windows.Forms.ComboBox();
+            this.tbRatePerDay = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbSalary = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbTIN = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbPhilhealth = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbPAGIBIG = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbSSS = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.shortCutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.editRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmpList)).BeginInit();
@@ -114,6 +156,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgDependents)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tbOtherInfo.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -142,9 +187,7 @@
             // 
             // cmbPosition
             // 
-            this.cmbPosition.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPosition.FormattingEnabled = true;
             this.cmbPosition.Location = new System.Drawing.Point(78, 41);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(163, 21);
@@ -153,11 +196,12 @@
             // cmbDepartment
             // 
             this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(78, 14);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(163, 21);
             this.cmbDepartment.TabIndex = 0;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+            this.cmbDepartment.SelectedValueChanged += new System.EventHandler(this.cmbDepartment_SelectedValueChanged);
             // 
             // label3
             // 
@@ -224,6 +268,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnCancel);
             this.groupBox3.Controls.Add(this.btnShowAll);
             this.groupBox3.Controls.Add(this.btnDelete);
             this.groupBox3.Controls.Add(this.btnSave);
@@ -275,6 +320,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnNew
             // 
@@ -373,9 +419,9 @@
             // 
             // Birthday
             // 
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Birthday.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Birthday.DefaultCellStyle = dataGridViewCellStyle1;
             this.Birthday.HeaderText = "Birthday";
             this.Birthday.Name = "Birthday";
             this.Birthday.Width = 120;
@@ -457,9 +503,7 @@
             // 
             // cmbDepEntry
             // 
-            this.cmbDepEntry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbDepEntry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDepEntry.FormattingEnabled = true;
             this.cmbDepEntry.Location = new System.Drawing.Point(488, 165);
             this.cmbDepEntry.Name = "cmbDepEntry";
             this.cmbDepEntry.Size = new System.Drawing.Size(82, 21);
@@ -476,9 +520,7 @@
             // 
             // cmbPosEntry
             // 
-            this.cmbPosEntry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbPosEntry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPosEntry.FormattingEnabled = true;
             this.cmbPosEntry.Location = new System.Drawing.Point(335, 165);
             this.cmbPosEntry.Name = "cmbPosEntry";
             this.cmbPosEntry.Size = new System.Drawing.Size(82, 21);
@@ -707,7 +749,34 @@
             // 
             // tbOtherInfo
             // 
-            this.tbOtherInfo.Controls.Add(this.textBox12);
+            this.tbOtherInfo.Controls.Add(this.groupBox8);
+            this.tbOtherInfo.Controls.Add(this.groupBox7);
+            this.tbOtherInfo.Controls.Add(this.groupBox6);
+            this.tbOtherInfo.Controls.Add(this.tbCardNumber);
+            this.tbOtherInfo.Controls.Add(this.label34);
+            this.tbOtherInfo.Controls.Add(this.tbBankNumber);
+            this.tbOtherInfo.Controls.Add(this.label33);
+            this.tbOtherInfo.Controls.Add(this.tbAccountNumber);
+            this.tbOtherInfo.Controls.Add(this.label32);
+            this.tbOtherInfo.Controls.Add(this.dtEndo);
+            this.tbOtherInfo.Controls.Add(this.label31);
+            this.tbOtherInfo.Controls.Add(this.dtRegular);
+            this.tbOtherInfo.Controls.Add(this.label30);
+            this.tbOtherInfo.Controls.Add(this.dtHired);
+            this.tbOtherInfo.Controls.Add(this.label29);
+            this.tbOtherInfo.Controls.Add(this.cmbSalType);
+            this.tbOtherInfo.Controls.Add(this.tbRatePerDay);
+            this.tbOtherInfo.Controls.Add(this.label28);
+            this.tbOtherInfo.Controls.Add(this.label27);
+            this.tbOtherInfo.Controls.Add(this.tbSalary);
+            this.tbOtherInfo.Controls.Add(this.label26);
+            this.tbOtherInfo.Controls.Add(this.tbTIN);
+            this.tbOtherInfo.Controls.Add(this.label25);
+            this.tbOtherInfo.Controls.Add(this.tbPhilhealth);
+            this.tbOtherInfo.Controls.Add(this.label24);
+            this.tbOtherInfo.Controls.Add(this.tbPAGIBIG);
+            this.tbOtherInfo.Controls.Add(this.label22);
+            this.tbOtherInfo.Controls.Add(this.tbSSS);
             this.tbOtherInfo.Controls.Add(this.label23);
             this.tbOtherInfo.Location = new System.Drawing.Point(4, 22);
             this.tbOtherInfo.Name = "tbOtherInfo";
@@ -717,12 +786,362 @@
             this.tbOtherInfo.Text = "Other Information";
             this.tbOtherInfo.UseVisualStyleBackColor = true;
             // 
-            // textBox12
+            // groupBox8
             // 
-            this.textBox12.Location = new System.Drawing.Point(55, 9);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(183, 20);
-            this.textBox12.TabIndex = 1;
+            this.groupBox8.Controls.Add(this.textBox15);
+            this.groupBox8.Controls.Add(this.label41);
+            this.groupBox8.Controls.Add(this.textBox14);
+            this.groupBox8.Controls.Add(this.label40);
+            this.groupBox8.Controls.Add(this.textBox13);
+            this.groupBox8.Controls.Add(this.label39);
+            this.groupBox8.Location = new System.Drawing.Point(269, 269);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(311, 114);
+            this.groupBox8.TabIndex = 29;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Other Allowance/Month";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(118, 84);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(142, 20);
+            this.textBox15.TabIndex = 37;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(29, 91);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(83, 13);
+            this.label41.TabIndex = 38;
+            this.label41.Text = "2 - Non-Taxable";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(118, 55);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(142, 20);
+            this.textBox14.TabIndex = 35;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(29, 62);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(83, 13);
+            this.label40.TabIndex = 36;
+            this.label40.Text = "1 - Non-Taxable";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(118, 23);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(142, 20);
+            this.textBox13.TabIndex = 33;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(29, 30);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(45, 13);
+            this.label39.TabIndex = 34;
+            this.label39.Text = "Taxable";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.textBox11);
+            this.groupBox7.Controls.Add(this.label38);
+            this.groupBox7.Controls.Add(this.textBox10);
+            this.groupBox7.Controls.Add(this.label37);
+            this.groupBox7.Location = new System.Drawing.Point(6, 269);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(248, 114);
+            this.groupBox7.TabIndex = 28;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Allowance/Month";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(90, 58);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(142, 20);
+            this.textBox11.TabIndex = 31;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(1, 65);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(83, 13);
+            this.label38.TabIndex = 32;
+            this.label38.Text = "1 - Non-Taxable";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(90, 19);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(142, 20);
+            this.textBox10.TabIndex = 29;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(11, 26);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(45, 13);
+            this.label37.TabIndex = 30;
+            this.label37.Text = "Taxable";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.comboBox2);
+            this.groupBox6.Controls.Add(this.label35);
+            this.groupBox6.Controls.Add(this.textBox9);
+            this.groupBox6.Controls.Add(this.label36);
+            this.groupBox6.Location = new System.Drawing.Point(6, 201);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(574, 62);
+            this.groupBox6.TabIndex = 27;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Deduction";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(333, 21);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(143, 21);
+            this.comboBox2.TabIndex = 26;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(244, 25);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(83, 13);
+            this.label35.TabIndex = 31;
+            this.label35.Text = "SSS Deduction:";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(59, 20);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(173, 20);
+            this.textBox9.TabIndex = 25;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(11, 27);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(38, 13);
+            this.label36.TabIndex = 28;
+            this.label36.Text = "HDMF";
+            // 
+            // tbCardNumber
+            // 
+            this.tbCardNumber.Location = new System.Drawing.Point(339, 136);
+            this.tbCardNumber.Name = "tbCardNumber";
+            this.tbCardNumber.Size = new System.Drawing.Size(173, 20);
+            this.tbCardNumber.TabIndex = 24;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(280, 140);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(50, 13);
+            this.label34.TabIndex = 23;
+            this.label34.Text = "CARD #:";
+            // 
+            // tbBankNumber
+            // 
+            this.tbBankNumber.Location = new System.Drawing.Point(339, 110);
+            this.tbBankNumber.Name = "tbBankNumber";
+            this.tbBankNumber.Size = new System.Drawing.Size(173, 20);
+            this.tbBankNumber.TabIndex = 22;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(280, 114);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(49, 13);
+            this.label33.TabIndex = 21;
+            this.label33.Text = "BANK #:";
+            // 
+            // tbAccountNumber
+            // 
+            this.tbAccountNumber.Location = new System.Drawing.Point(339, 84);
+            this.tbAccountNumber.Name = "tbAccountNumber";
+            this.tbAccountNumber.Size = new System.Drawing.Size(173, 20);
+            this.tbAccountNumber.TabIndex = 20;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(280, 88);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(42, 13);
+            this.label32.TabIndex = 19;
+            this.label32.Text = "Acct #:";
+            // 
+            // dtEndo
+            // 
+            this.dtEndo.CustomFormat = "MM/dd/yyyy";
+            this.dtEndo.Location = new System.Drawing.Point(339, 57);
+            this.dtEndo.Name = "dtEndo";
+            this.dtEndo.Size = new System.Drawing.Size(190, 20);
+            this.dtEndo.TabIndex = 18;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(266, 63);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(55, 13);
+            this.label31.TabIndex = 17;
+            this.label31.Text = "Date End:";
+            // 
+            // dtRegular
+            // 
+            this.dtRegular.CustomFormat = "MM/dd/yyyy";
+            this.dtRegular.Location = new System.Drawing.Point(339, 31);
+            this.dtRegular.Name = "dtRegular";
+            this.dtRegular.Size = new System.Drawing.Size(190, 20);
+            this.dtRegular.TabIndex = 16;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(266, 37);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(73, 13);
+            this.label30.TabIndex = 15;
+            this.label30.Text = "Date Regular:";
+            // 
+            // dtHired
+            // 
+            this.dtHired.CustomFormat = "MM/dd/yyyy";
+            this.dtHired.Location = new System.Drawing.Point(339, 6);
+            this.dtHired.Name = "dtHired";
+            this.dtHired.Size = new System.Drawing.Size(190, 20);
+            this.dtHired.TabIndex = 14;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(266, 12);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(61, 13);
+            this.label29.TabIndex = 13;
+            this.label29.Text = "Date Hired:";
+            // 
+            // cmbSalType
+            // 
+            this.cmbSalType.FormattingEnabled = true;
+            this.cmbSalType.Location = new System.Drawing.Point(85, 139);
+            this.cmbSalType.Name = "cmbSalType";
+            this.cmbSalType.Size = new System.Drawing.Size(153, 21);
+            this.cmbSalType.TabIndex = 10;
+            // 
+            // tbRatePerDay
+            // 
+            this.tbRatePerDay.Location = new System.Drawing.Point(85, 165);
+            this.tbRatePerDay.Name = "tbRatePerDay";
+            this.tbRatePerDay.Size = new System.Drawing.Size(153, 20);
+            this.tbRatePerDay.TabIndex = 12;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 169);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(73, 13);
+            this.label28.TabIndex = 12;
+            this.label28.Text = "Rate per Day:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 143);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(66, 13);
+            this.label27.TabIndex = 10;
+            this.label27.Text = "Salary Type:";
+            // 
+            // tbSalary
+            // 
+            this.tbSalary.Location = new System.Drawing.Point(55, 113);
+            this.tbSalary.Name = "tbSalary";
+            this.tbSalary.Size = new System.Drawing.Size(183, 20);
+            this.tbSalary.TabIndex = 9;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 117);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(39, 13);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Salary:";
+            // 
+            // tbTIN
+            // 
+            this.tbTIN.Location = new System.Drawing.Point(55, 87);
+            this.tbTIN.Name = "tbTIN";
+            this.tbTIN.Size = new System.Drawing.Size(183, 20);
+            this.tbTIN.TabIndex = 7;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 91);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(38, 13);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "TIN #:";
+            // 
+            // tbPhilhealth
+            // 
+            this.tbPhilhealth.Location = new System.Drawing.Point(55, 61);
+            this.tbPhilhealth.Name = "tbPhilhealth";
+            this.tbPhilhealth.Size = new System.Drawing.Size(183, 20);
+            this.tbPhilhealth.TabIndex = 5;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 65);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(45, 13);
+            this.label24.TabIndex = 4;
+            this.label24.Text = "PHIC #:";
+            // 
+            // tbPAGIBIG
+            // 
+            this.tbPAGIBIG.Location = new System.Drawing.Point(55, 35);
+            this.tbPAGIBIG.Name = "tbPAGIBIG";
+            this.tbPAGIBIG.Size = new System.Drawing.Size(183, 20);
+            this.tbPAGIBIG.TabIndex = 3;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 39);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(51, 13);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "HDMF #:";
+            // 
+            // tbSSS
+            // 
+            this.tbSSS.Location = new System.Drawing.Point(55, 9);
+            this.tbSSS.Name = "tbSSS";
+            this.tbSSS.Size = new System.Drawing.Size(183, 20);
+            this.tbSSS.TabIndex = 1;
             // 
             // label23
             // 
@@ -762,6 +1181,30 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(94, 17);
             this.toolStripStatusLabel1.Text = "New Record - F3";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel2.Text = " ";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(90, 17);
+            this.toolStripStatusLabel3.Text = "Edit Record - F4";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel4.Text = "  ";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(94, 17);
+            this.toolStripStatusLabel5.Text = "Save Record - F6";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -787,27 +1230,15 @@
             // 
             this.newRecordToolStripMenuItem.Name = "newRecordToolStripMenuItem";
             this.newRecordToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.newRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newRecordToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.newRecordToolStripMenuItem.Text = "New Record";
             this.newRecordToolStripMenuItem.Click += new System.EventHandler(this.newRecordToolStripMenuItem_Click);
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel2.Text = " ";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(90, 17);
-            this.toolStripStatusLabel3.Text = "Edit Record - F4";
             // 
             // editRecordToolStripMenuItem
             // 
             this.editRecordToolStripMenuItem.Name = "editRecordToolStripMenuItem";
             this.editRecordToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.editRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editRecordToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.editRecordToolStripMenuItem.Text = "Edit Record";
             this.editRecordToolStripMenuItem.Click += new System.EventHandler(this.editRecordToolStripMenuItem_Click);
             // 
@@ -815,21 +1246,19 @@
             // 
             this.saveRecordToolStripMenuItem.Name = "saveRecordToolStripMenuItem";
             this.saveRecordToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.saveRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveRecordToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.saveRecordToolStripMenuItem.Text = "Save Record";
             this.saveRecordToolStripMenuItem.Click += new System.EventHandler(this.saveRecordToolStripMenuItem_Click);
             // 
-            // toolStripStatusLabel4
+            // btnCancel
             // 
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(13, 17);
-            this.toolStripStatusLabel4.Text = "  ";
-            // 
-            // toolStripStatusLabel5
-            // 
-            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(94, 17);
-            this.toolStripStatusLabel5.Text = "Save Record - F6";
+            this.btnCancel.Location = new System.Drawing.Point(474, 446);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(65, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "&Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // EmpMasterFile
             // 
@@ -865,6 +1294,12 @@
             this.groupBox4.PerformLayout();
             this.tbOtherInfo.ResumeLayout(false);
             this.tbOtherInfo.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -935,7 +1370,7 @@
         private System.Windows.Forms.Button btnShowAll;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dgDependents;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox tbSSS;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Relationship;
@@ -951,5 +1386,47 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.ToolStripMenuItem saveRecordToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cmbSalType;
+        private System.Windows.Forms.TextBox tbRatePerDay;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tbSalary;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox tbTIN;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox tbPhilhealth;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tbPAGIBIG;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox tbCardNumber;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox tbBankNumber;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox tbAccountNumber;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.DateTimePicker dtEndo;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.DateTimePicker dtRegular;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.DateTimePicker dtHired;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

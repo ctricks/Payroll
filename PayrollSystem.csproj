@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1553069_blue_g_letter_alphabet_letters_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attendance\AttendanceProcessing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attendance\AttendanceProcessing.Designer.cs">
+      <DependentUpon>AttendanceProcessing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee\EmpMasterFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +80,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Attendance\AttendanceProcessing.resx">
+      <DependentUpon>AttendanceProcessing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employee\EmpMasterFile.resx">
       <DependentUpon>EmpMasterFile.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,7 +110,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="1553069_blue_g_letter_alphabet_letters_icon.ico" />
     <Content Include="PSDB.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\background.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Settings.ini">
@@ -108,8 +124,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

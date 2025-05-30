@@ -15,6 +15,8 @@ namespace PayrollSystem.Employee
 {
     public partial class EmpMasterFile : Form
     {
+        bool isEdit = false;
+
         DataTable dtEmployeeRecords = new DataTable();
 
         DataTable Department = new DataTable();
@@ -39,12 +41,7 @@ namespace PayrollSystem.Employee
             cmbDepartment.ValueMember = "ID";
             cmbDepartment.SelectedIndex = 0;
 
-            cmbDepEntry.DataSource = Department;
-            cmbDepEntry.DisplayMember = "DepartmentCode";
-            cmbDepEntry.ValueMember = "ID";
-            cmbDepEntry.SelectedIndex = 0;
-
-
+            
             Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
 
             DataRow drPos = Position.NewRow();
@@ -56,12 +53,6 @@ namespace PayrollSystem.Employee
             cmbPosition.DisplayMember = "PositionCode";
             cmbPosition.ValueMember = "ID";
             cmbPosition.SelectedIndex = 0;
-
-
-            cmbPosEntry.DataSource = Position;
-            cmbPosEntry.DisplayMember = "PositionCode";
-            cmbPosEntry.ValueMember = "ID";
-            cmbPosEntry.SelectedIndex = 0;
 
             Gender = cref.getDataTableRefence("tblPSD_Gender", "ID,GenderCode");
 
@@ -80,6 +71,22 @@ namespace PayrollSystem.Employee
 
             cmbCivilStatus.DataSource = chelp.getIniList("CivilStatus", "Status");
             cmbCivilStatus.SelectedIndex = 0;
+
+            cmbSalType.DataSource = chelp.getIniList("SalaryType", "Status");
+            cmbSalType.SelectedIndex = 0;
+
+            //Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
+            //Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
+
+            //cmbPosEntry.DataSource = Position;
+            //cmbPosEntry.DisplayMember = "PositionCode";
+            //cmbPosEntry.ValueMember = "ID";
+            //cmbPosEntry.SelectedIndex = 0;
+
+            //cmbDepEntry.DataSource = Department;
+            //cmbDepEntry.DisplayMember = "DepartmentCode";
+            //cmbDepEntry.ValueMember = "ID";
+            //cmbDepEntry.SelectedIndex = 0;
 
             DefaultControls();
 
@@ -100,7 +107,7 @@ namespace PayrollSystem.Employee
         private void EmpMasterFile_Load(object sender, EventArgs e)
         {
             InitializedEmpMaster();
-            showAll();
+            showAll();            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -119,6 +126,8 @@ namespace PayrollSystem.Employee
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
             btnSave.Enabled = true;
+
+            cmbBoxHelper();
         }
 
         private void newRecordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,7 +148,7 @@ namespace PayrollSystem.Employee
                 return;
             }
 
-            if (isEmployeeExists(tbLastName.Text, tbFirstName.Text, tbMiddleName.Text))
+            if (isEmployeeExists(tbLastName.Text, tbFirstName.Text, tbMiddleName.Text) && isEdit == false)
             {
                 MessageBox.Show("Error: Cannot save employee details. Please check your entries", "Create User : Employee Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -163,12 +172,25 @@ namespace PayrollSystem.Employee
                 dtEmp.Rows.Add("Birthday", "E", "#" + DateTime.Parse(dtBirth.Value.ToShortDateString()).ToString("yyyy-MM-dd HH:mm:ss") + "#");
                 dtEmp.Rows.Add("CivilStatus", "F", cmbCivilStatus.Text);
                 dtEmp.Rows.Add("Gender", "T", cmbGender.SelectedValue.ToString());
-                dtEmp.Rows.Add("Position", "T", cmbPosition.SelectedValue.ToString());
-                dtEmp.Rows.Add("Department", "T", cmbDepartment.SelectedValue.ToString());
+                dtEmp.Rows.Add("Position", "T", cmbPosEntry.SelectedIndex.ToString());
+                dtEmp.Rows.Add("Department", "T", cmbDepEntry.SelectedIndex.ToString());
                 dtEmp.Rows.Add("Telephone", "F", tbTelephone.Text.ToString());
                 dtEmp.Rows.Add("PEName", "F", tbPEName.Text.ToString());
                 dtEmp.Rows.Add("PEAdd", "F", tbPEAdd.Text.ToString());
-                dtEmp.Rows.Add("PETel", "F", tbPETelephone.Text.ToString());
+                dtEmp.Rows.Add("PETel", "F", tbPETelephone.Text.ToString());                
+                dtEmp.Rows.Add("SSS", "F", tbSSS.Text.ToString());
+                dtEmp.Rows.Add("HDMF", "F", tbPAGIBIG.Text.ToString());
+                dtEmp.Rows.Add("PHIC", "F", tbPhilhealth.Text.ToString());
+                dtEmp.Rows.Add("TIN", "F", tbTIN.Text.ToString());
+                dtEmp.Rows.Add("Salary", "F", tbSalary.Text.ToString());
+                dtEmp.Rows.Add("SalaryType", "F", cmbSalType.Text.ToString());
+                dtEmp.Rows.Add("RatePerDay", "F", tbRatePerDay.Text.ToString());
+                dtEmp.Rows.Add("DateHired", "E", "#" + DateTime.Parse(dtHired.Value.ToShortDateString()).ToString("yyyy-MM-dd HH:mm:ss") + "#");
+                dtEmp.Rows.Add("DateRegular", "E", "#" + DateTime.Parse(dtRegular.Value.ToShortDateString()).ToString("yyyy-MM-dd HH:mm:ss") + "#");
+                dtEmp.Rows.Add("DateEnd", "E", "#" + DateTime.Parse(dtEndo.Value.ToShortDateString()).ToString("yyyy-MM-dd HH:mm:ss") + "#");
+                dtEmp.Rows.Add("AccountNumber", "F", tbAccountNumber.Text.ToString());
+                dtEmp.Rows.Add("BankNumber", "F", tbBankNumber.Text.ToString());
+                dtEmp.Rows.Add("CardNumber", "F", tbCardNumber.Text.ToString());
 
                 if (cbSameAs.Checked)
                 {
@@ -178,17 +200,25 @@ namespace PayrollSystem.Employee
                 {
                     dtEmp.Rows.Add("PESameAs", "T", "0");
                 }
-
-
-                string QueryString = cDB.setInsertQueryBuilder("tblPSD_201File", dtEmp);
+                string QueryString = string.Empty;
+                if (isEdit == false)
+                {
+                    QueryString = cDB.setInsertQueryBuilder("tblPSD_201File", dtEmp);
+                }else
+                {
+                    QueryString = cDB.setUpdateQueryBuilder("tblPSD_201File", dtEmp,"ID = " + tbRecordID.Text);
+                }
+                
 
                 string EmployeeName = tbLastName.Text + "," + tbFirstName.Text + " " + (tbMiddleName.Text.Length > 0 ? tbMiddleName.Text.Substring(0, 1) + "." : "");
                 if (cDB.insertRecordTable(QueryString) == 1)
                 {
-                    MessageBox.Show("Employee: " + EmployeeName + " was successfully inserted", "Employee Successfully Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Employee: " + EmployeeName + " was successfully saved", "Employee Successfully Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DefaultControls();
                 }
+                cmbBoxHelper();
             }
+            isEdit = false;
             btnShowAll.PerformClick();
         }
 
@@ -233,9 +263,75 @@ namespace PayrollSystem.Employee
             lblTotalRecords.Text = "Total Record(s) in Database: " + dtEmployeeRecords.Rows.Count.ToString();
         }
 
+        private void cmbBoxHelper()
+        {
+            Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
+            Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
+
+            cmbPosEntry.DataSource = Position;
+            cmbPosEntry.DisplayMember = "PositionCode";
+            cmbPosEntry.ValueMember = "ID";
+            cmbPosEntry.SelectedIndex = 0;
+
+            cmbDepEntry.DataSource = Department;
+            cmbDepEntry.DisplayMember = "DepartmentCode";
+            cmbDepEntry.ValueMember = "ID";
+            cmbDepEntry.SelectedIndex = 0;
+        }
+
         private void DisplayDetails(int RecordID)
         {
+            DataView dvResult = dtEmployeeRecords.DefaultView;
+            dvResult.RowFilter = "ID=" + RecordID;
+            if (dvResult.Count > 0)
+            {
+                tbRecordID.Text = dvResult[0][0].ToString();
+                tbEmployeeID.Text = dvResult[0][1].ToString();
+                tbBioMetricID.Text = dvResult[0][2].ToString();
+                cmbEmpStatus.Text = dvResult[0][3].ToString();
+                tbLastName.Text = dvResult[0][4].ToString();
+                tbFirstName.Text = dvResult[0][5].ToString();
+                tbMiddleName.Text = dvResult[0][6].ToString();
+                tbAddress.Text = dvResult[0][7].ToString();
+                dtBirth.Text = dvResult[0][8].ToString();
+                cmbGender.Text = dvResult[0][9].ToString();
 
+                int genderIndex = 0;
+                int.TryParse(dvResult[0][10].ToString(), out genderIndex);
+                cmbGender.SelectedIndex = genderIndex;
+
+                tbTelephone.Text = dvResult[0][11].ToString();
+                int positionIndex = 0;
+                int.TryParse(dvResult[0][12].ToString(), out positionIndex);
+                cmbPosEntry.SelectedIndex = positionIndex;
+                int departmentIndex = 0;
+                int.TryParse(dvResult[0][13].ToString(), out departmentIndex);
+                cmbDepEntry.SelectedIndex = departmentIndex;
+
+                tbPEName.Text = dvResult[0][14].ToString();
+                tbPEAdd.Text = dvResult[0][16].ToString();
+                tbPETelephone.Text = dvResult[0][15].ToString();
+                cbSameAs.Checked = dvResult[0][17].ToString() == "1" ? true:false;
+
+                tbSSS.Text = dvResult[0][18].ToString();
+                tbPAGIBIG.Text = dvResult[0][19].ToString();
+                tbPhilhealth.Text = dvResult[0][20].ToString();
+                tbTIN.Text = dvResult[0][21].ToString();    
+                tbSalary.Text = dvResult[0][22].ToString(); 
+                cmbSalType.Text = dvResult[0][23].ToString();
+                tbRatePerDay.Text = dvResult[0][24].ToString(); 
+                dtHired.Text = dvResult[0][25].ToString();
+                dtRegular.Text = dvResult[0][26].ToString();
+                dtEndo.Text = dvResult[0][27].ToString();   
+                tbAccountNumber.Text = dvResult[0][28].ToString();
+                tbBankNumber.Text = dvResult[0][29].ToString();
+                tbCardNumber.Text = dvResult[0][30].ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Error: No employee found. ", "Payroll System : ID=" + RecordID, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)
@@ -272,13 +368,48 @@ namespace PayrollSystem.Employee
 
         private void dgEmpList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            cmbBoxHelper();
             string EmpID = dgEmpList.SelectedRows[0].Cells[0].Value.ToString();
-            MessageBox.Show(EmpID);
+            DisplayDetails(int.Parse(EmpID));
         }
 
         private void saveRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnSave.PerformClick();
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void cmbDepartment_SelectedValueChanged(object sender, EventArgs e)
+        {
+                 
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //cmbBoxHelper();
+
+            if (string.IsNullOrEmpty(tbRecordID.Text))
+            {
+                MessageBox.Show("Error: Cannot edit employee details. Please select from your list", "Edit User : Invalid Employee ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            isEdit = true;
+            chelp.ControlEnableDisable(tabControl1, true, "E");
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult dres = MessageBox.Show("Are you sure you want to Cancel Transaction?", "Cancel Transaction?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dres == DialogResult.Yes)
+            {
+                InitializedEmpMaster();
+                showAll();
+                btnEdit.Enabled = true;
+            }            
         }
     }
 }

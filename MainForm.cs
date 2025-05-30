@@ -20,7 +20,7 @@ namespace PayrollSystem
             string MainBackground = MyIni.Read("MainBackground", "ApplicationSettings");
             if (!File.Exists(MainBackground))
             {
-                MainBackground = Application.ExecutablePath + "\\Resources\\Background.jpg";
+                MainBackground = Environment.CurrentDirectory + "\\Resources\\Background.jpg";
             }
 
             if (File.Exists(MainBackground))
@@ -85,6 +85,13 @@ namespace PayrollSystem
             Employee.EmpMasterFile empForm = new Employee.EmpMasterFile();             
             empForm.MdiParent = this;
             empForm.Show();
+        }
+
+        private void processingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Attendance.AttendanceProcessing attendanceProcessing = new Attendance.AttendanceProcessing();   
+            attendanceProcessing.MdiParent = this;
+            attendanceProcessing.Show();
         }
     }
 }

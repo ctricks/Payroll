@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,26 @@ namespace PayrollSystem.Functions
             
             return cRef;
         }
+        public void SetIni(string Key, string Section, string Value)
+        {
+            try
+            {
+                MyIni.Write(Key, Value, Section);
+            }
+            catch (Exception)
+            {
+            }
+        }
+        public string GetIniValue(string Key,string Section,string DefaultValue)
+        {
+            string result = DefaultValue;
+            result = MyIni.Read(Key,Section);
+            if (string.IsNullOrEmpty(result))
+            {
+                result = DefaultValue;
+            }
+            return result;
+        }
         public List<string> getIniList(string Key,string Section)
         {
             List<string> slistItem = new List<string>();
@@ -37,23 +58,27 @@ namespace PayrollSystem.Functions
         {
             foreach(TabPage tc2 in tc.TabPages)
             {
-                if(tc2.TabIndex == 0)
+                if((tc2.TabIndex == 0) || (tc2.TabIndex == 1))
                 {
                     foreach (Control ctrl in tc2.Controls)
                     {
                         if (ctrl is TextBox)
                         {
                             ctrl.Enabled = status;
-                            ctrl.Text = defaultValue;
+                            if(defaultValue != "E")
+                                ctrl.Text = defaultValue;
                         }
                         if (ctrl is ComboBox)
                         {
                             ctrl.Enabled = status;
-                            ctrl.Text = defaultValue;
+                            if (defaultValue != "E")
+                                ctrl.Text = defaultValue;
                         }
                         if(ctrl is CheckBox)
                         {
                             ctrl.Enabled = status;
+                            CheckBox cbcheck = (CheckBox)ctrl;
+                            cbcheck.Checked = status;
                         }
                         
                         if(ctrl is GroupBox)
@@ -63,17 +88,32 @@ namespace PayrollSystem.Functions
                                 if (ctr is TextBox)
                                 {
                                     ctr.Enabled = status;
-                                    ctr.Text = defaultValue;
+                                    if (defaultValue != "E")
+                                        ctr.Text = defaultValue;
                                 }
                                 if (ctr is CheckBox)
                                 {
                                     ctr.Enabled = status;
+                                    CheckBox cbcheck = (CheckBox)ctr;
+                                    cbcheck.Checked = status;
                                 }
                                 if (ctrl is DataGridView)
                                 {
                                     ctrl.Enabled = status;
                                 }
+                                if(ctr is ComboBox)
+                                {
+                                    ctrl.Enabled = status;
+                                    if (defaultValue != "E")
+                                        ctr.Text = defaultValue;
+                                }
                             }
+                        }
+                        if(ctrl is DateTimePicker)
+                        {
+                            ctrl.Enabled = status;
+                            if(defaultValue != "E")
+                                ctrl.Text = "1901-01-01";
                         }
                     }
                 }

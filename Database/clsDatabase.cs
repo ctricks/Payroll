@@ -27,12 +27,34 @@ namespace PayrollSystem.Database
         string setDatabasePath()
         {
             string sDatabasePath = MyIni.Read("Directory", "DatabaseSettings");
+            
+            if (!Directory.Exists(sDatabasePath))
+            {
+                sDatabasePath = Environment.CurrentDirectory;
+            }
             return sDatabasePath;
         }
 
         public string setConnectionString(string DatabaseName)
         {
-            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + DatabasePath + "\\" + DatabaseName +";";
+            DatabasePath = MyIni.Read("Directory", "DatabaseSettings");
+            DatabaseName = MyIni.Read("Filename", "DatabaseSettings");
+            string DatabaseFilePath = DatabasePath + "\\" + DatabaseName;
+
+            if (!Directory.Exists(DatabasePath))
+            {
+                DatabasePath = Environment.CurrentDirectory;
+                DatabaseFilePath = DatabasePath + "\\" + DatabaseName;
+            }
+
+            if (!File.Exists(DatabaseFilePath))
+            {
+                MessageBox.Show("Database File:" + DatabaseFilePath, "Error: Database file is not found. Please ask your Administrator", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+
+
+            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + DatabaseFilePath + ";";
         }
         public string setQueryBuilder(string sColumnName, string sTableName, string sCriteria)
         {
@@ -50,6 +72,48 @@ namespace PayrollSystem.Database
         {
             string sResult = string.Empty;
             sResult = "Delete from [" + TableName + "] where " + Criteria;
+            return sResult;
+        }
+        public string setUpdateQueryBuilder(string TableName,DataTable dtBody,string Criteria)
+        {
+            string sResult = string.Empty;
+            try
+            {
+                sResult = "Update [" + TableName + "]";
+                string sColumnName = string.Empty;
+
+                sColumnName += "SET ";
+
+                if (dtBody.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dtBody.Rows)
+                    {
+                        sColumnName += "[" + dr["ColumnName"] + "] = ";
+                        if (dr["isNumeric"].ToString() == "F")
+                        {
+                            sColumnName += "'" + dr["Value"].ToString() + "',";
+                        }
+                        else if (dr["isNumeric"].ToString() == "E")
+                        {
+                            sColumnName += dr["Value"].ToString() + ",";
+                        }
+                        else
+                        {
+                            if (string.IsNullOrEmpty(dr["Value"].ToString()))
+                            {
+                                dr["Value"] = "0";
+                            }
+                            sColumnName += int.Parse(dr["Value"].ToString()).ToString() + ",";
+                        }
+                    }
+                    sColumnName = sColumnName.Substring(0, sColumnName.Length - 1) + " where " + Criteria;
+
+                    sResult += " " + sColumnName;
+                }
+            }
+            catch (Exception e)
+            {
+            }
             return sResult;
         }
         public string setInsertQueryBuilder(string TableName,DataTable dtBody)
@@ -127,10 +191,16 @@ namespace PayrollSystem.Database
             DatabaseName = setDatabaseName();
             DatabasePath = setDatabasePath();
 
+            if (!Directory.Exists(DatabasePath))
+            {
+                DatabasePath = Environment.CurrentDirectory;
+            }
+
+            //setConnectionString(DatabaseName);
             try
             {
                 result = Directory.Exists(DatabasePath);
-                result = File.Exists(DatabaseName);
+                result = File.Exists(DatabasePath + "\\" + DatabaseName);
             }
             catch (Exception ex)
             {
