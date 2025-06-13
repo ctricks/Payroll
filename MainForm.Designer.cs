@@ -35,9 +35,11 @@
             this.exToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.attendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shiftScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.employeeToolStripMenuItem,
-            this.attendanceToolStripMenuItem});
+            this.attendanceToolStripMenuItem,
+            this.maintenanceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1273, 24);
@@ -66,19 +69,19 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logOutToolStripMenuItem.Text = "Log-&Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exToolStripMenuItem
             // 
             this.exToolStripMenuItem.Name = "exToolStripMenuItem";
-            this.exToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.exToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exToolStripMenuItem.Text = "E&xit Application";
             this.exToolStripMenuItem.Click += new System.EventHandler(this.exToolStripMenuItem_Click);
             // 
@@ -93,17 +96,9 @@
             // masterlistToolStripMenuItem
             // 
             this.masterlistToolStripMenuItem.Name = "masterlistToolStripMenuItem";
-            this.masterlistToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.masterlistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.masterlistToolStripMenuItem.Text = "&Masterfile";
             this.masterlistToolStripMenuItem.Click += new System.EventHandler(this.masterlistToolStripMenuItem_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 618);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1273, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // attendanceToolStripMenuItem
             // 
@@ -119,6 +114,28 @@
             this.processingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.processingToolStripMenuItem.Text = "&Processing";
             this.processingToolStripMenuItem.Click += new System.EventHandler(this.processingToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 618);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1273, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.shiftScheduleToolStripMenuItem});
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.maintenanceToolStripMenuItem.Text = "&Maintenance";
+            // 
+            // shiftScheduleToolStripMenuItem
+            // 
+            this.shiftScheduleToolStripMenuItem.Name = "shiftScheduleToolStripMenuItem";
+            this.shiftScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shiftScheduleToolStripMenuItem.Text = "&Shift Schedule";
             // 
             // MainForm
             // 
@@ -154,5 +171,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem attendanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem processingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shiftScheduleToolStripMenuItem;
     }
 }

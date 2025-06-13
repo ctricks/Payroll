@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbEmployeeSearch = new System.Windows.Forms.TextBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
@@ -40,6 +40,7 @@
             this.lblTotalRecords = new System.Windows.Forms.Label();
             this.dgEmpList = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -90,6 +91,8 @@
             this.tbRecordID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbOtherInfo = new System.Windows.Forms.TabPage();
+            this.cmbWorkShift = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -145,7 +148,8 @@
             this.newRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.tbStartTime = new System.Windows.Forms.TextBox();
+            this.tbEndTime = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmpList)).BeginInit();
@@ -281,6 +285,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Details";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(474, 446);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(65, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "&Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnShowAll
             // 
@@ -419,9 +433,9 @@
             // 
             // Birthday
             // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Birthday.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Birthday.DefaultCellStyle = dataGridViewCellStyle3;
             this.Birthday.HeaderText = "Birthday";
             this.Birthday.Name = "Birthday";
             this.Birthday.Width = 120;
@@ -749,6 +763,10 @@
             // 
             // tbOtherInfo
             // 
+            this.tbOtherInfo.Controls.Add(this.tbEndTime);
+            this.tbOtherInfo.Controls.Add(this.tbStartTime);
+            this.tbOtherInfo.Controls.Add(this.cmbWorkShift);
+            this.tbOtherInfo.Controls.Add(this.label42);
             this.tbOtherInfo.Controls.Add(this.groupBox8);
             this.tbOtherInfo.Controls.Add(this.groupBox7);
             this.tbOtherInfo.Controls.Add(this.groupBox6);
@@ -785,6 +803,25 @@
             this.tbOtherInfo.TabIndex = 1;
             this.tbOtherInfo.Text = "Other Information";
             this.tbOtherInfo.UseVisualStyleBackColor = true;
+            // 
+            // cmbWorkShift
+            // 
+            this.cmbWorkShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWorkShift.FormattingEnabled = true;
+            this.cmbWorkShift.Location = new System.Drawing.Point(339, 162);
+            this.cmbWorkShift.Name = "cmbWorkShift";
+            this.cmbWorkShift.Size = new System.Drawing.Size(91, 21);
+            this.cmbWorkShift.TabIndex = 25;
+            this.cmbWorkShift.SelectedIndexChanged += new System.EventHandler(this.cmbWorkShift_SelectedIndexChanged);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(258, 167);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(74, 13);
+            this.label42.TabIndex = 30;
+            this.label42.Text = "Working Shift:";
             // 
             // groupBox8
             // 
@@ -912,7 +949,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(333, 21);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(143, 21);
+            this.comboBox2.Size = new System.Drawing.Size(131, 21);
             this.comboBox2.TabIndex = 26;
             // 
             // label35
@@ -1250,15 +1287,21 @@
             this.saveRecordToolStripMenuItem.Text = "Save Record";
             this.saveRecordToolStripMenuItem.Click += new System.EventHandler(this.saveRecordToolStripMenuItem_Click);
             // 
-            // btnCancel
+            // tbStartTime
             // 
-            this.btnCancel.Location = new System.Drawing.Point(474, 446);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(65, 23);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "&Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.tbStartTime.Location = new System.Drawing.Point(435, 163);
+            this.tbStartTime.Name = "tbStartTime";
+            this.tbStartTime.ReadOnly = true;
+            this.tbStartTime.Size = new System.Drawing.Size(69, 20);
+            this.tbStartTime.TabIndex = 33;
+            // 
+            // tbEndTime
+            // 
+            this.tbEndTime.Location = new System.Drawing.Point(510, 163);
+            this.tbEndTime.Name = "tbEndTime";
+            this.tbEndTime.ReadOnly = true;
+            this.tbEndTime.Size = new System.Drawing.Size(69, 20);
+            this.tbEndTime.TabIndex = 34;
             // 
             // EmpMasterFile
             // 
@@ -1428,5 +1471,9 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ComboBox cmbWorkShift;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox tbEndTime;
+        private System.Windows.Forms.TextBox tbStartTime;
     }
 }

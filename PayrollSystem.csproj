@@ -33,9 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>1553069_blue_g_letter_alphabet_letters_icon.ico</ApplicationIcon>
+    <ApplicationIcon>G.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>Resources\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attendance\AttendanceInfo.cs" />
     <Compile Include="Attendance\AttendanceProcessing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +65,7 @@
     <Compile Include="Employee\EmpMasterFile.Designer.cs">
       <DependentUpon>EmpMasterFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions\clsAttendance.cs" />
     <Compile Include="Functions\clsHelpers.cs" />
     <Compile Include="Functions\clsReferenceTable.cs" />
     <Compile Include="Functions\clsUserFunctions.cs" />
@@ -118,6 +123,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Settings.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Template\TimeAttendanceExcelTemplate.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

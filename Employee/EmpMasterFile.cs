@@ -20,6 +20,7 @@ namespace PayrollSystem.Employee
         DataTable dtEmployeeRecords = new DataTable();
 
         DataTable Department = new DataTable();
+        DataTable ShiftSchedule = new DataTable();
         DataTable Position = new DataTable();
         DataTable Gender = new DataTable();
 
@@ -30,6 +31,7 @@ namespace PayrollSystem.Employee
         private void InitializedEmpMaster()
         {
             Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
+            ShiftSchedule = cref.getDataTableRefence("tblPSD_ShiftSchedule", "ID,Label,StartTime,EndTime");
 
             DataRow drDep = Department.NewRow();
             drDep["ID"] = 0;
@@ -41,7 +43,16 @@ namespace PayrollSystem.Employee
             cmbDepartment.ValueMember = "ID";
             cmbDepartment.SelectedIndex = 0;
 
-            
+            DataRow drSW = ShiftSchedule.NewRow();
+            drSW["ID"] = 0;
+            drSW["Label"] = string.Empty;
+            ShiftSchedule.Rows.InsertAt(drSW, 0);
+
+            cmbWorkShift.DataSource = ShiftSchedule;
+            cmbWorkShift.DisplayMember = "Label";
+            cmbWorkShift.ValueMember = "ID";
+            cmbWorkShift.SelectedIndex = 0;
+
             Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
 
             DataRow drPos = Position.NewRow();
@@ -157,6 +168,16 @@ namespace PayrollSystem.Employee
             DialogResult dres = MessageBox.Show("Would you like to save the following employee?", "Save employee : " + tbEmployeeID.Text + "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dres == DialogResult.Yes)
             {
+                int sschedule = 0;
+
+                DataView dvWS = new DataView(ShiftSchedule);
+                dvWS.RowFilter = "Label = '" + cmbWorkShift.Text.ToString() + "'";
+
+                if(dvWS.Count > 0)
+                {
+                    int.TryParse(dvWS[0]["ID"].ToString(), out sschedule);                    
+                }
+
                 DataTable dtEmp = new DataTable();
                 dtEmp.Columns.Add("ColumnName");
                 dtEmp.Columns.Add("isNumeric");
@@ -174,6 +195,7 @@ namespace PayrollSystem.Employee
                 dtEmp.Rows.Add("Gender", "T", cmbGender.SelectedValue.ToString());
                 dtEmp.Rows.Add("Position", "T", cmbPosEntry.SelectedIndex.ToString());
                 dtEmp.Rows.Add("Department", "T", cmbDepEntry.SelectedIndex.ToString());
+                dtEmp.Rows.Add("ShiftSchedule", "T", sschedule); 
                 dtEmp.Rows.Add("Telephone", "F", tbTelephone.Text.ToString());
                 dtEmp.Rows.Add("PEName", "F", tbPEName.Text.ToString());
                 dtEmp.Rows.Add("PEAdd", "F", tbPEAdd.Text.ToString());
@@ -191,6 +213,7 @@ namespace PayrollSystem.Employee
                 dtEmp.Rows.Add("AccountNumber", "F", tbAccountNumber.Text.ToString());
                 dtEmp.Rows.Add("BankNumber", "F", tbBankNumber.Text.ToString());
                 dtEmp.Rows.Add("CardNumber", "F", tbCardNumber.Text.ToString());
+
 
                 if (cbSameAs.Checked)
                 {
@@ -326,6 +349,25 @@ namespace PayrollSystem.Employee
                 tbAccountNumber.Text = dvResult[0][28].ToString();
                 tbBankNumber.Text = dvResult[0][29].ToString();
                 tbCardNumber.Text = dvResult[0][30].ToString();
+                int workShiftIndex = 0;
+                int.TryParse(dvResult[0][34].ToString(), out workShiftIndex);
+
+                if (workShiftIndex != 0)
+                {
+                    DataView dvWS = new DataView(ShiftSchedule);
+                    dvWS.RowFilter = "ID=" + workShiftIndex;
+                    if (dvWS.Count > 0)
+                    {
+                        cmbWorkShift.Text = dvWS[0]["Label"].ToString();
+                        tbStartTime.Text = DateTime.Parse(dvWS[0].Row["StartTime"].ToString()).ToShortTimeString();
+                        tbEndTime.Text = DateTime.Parse(dvWS[0].Row["EndTime"].ToString()).ToShortTimeString();
+                    }
+                }else
+                {
+                    cmbWorkShift.Text = string.Empty;
+                    tbStartTime.Text = string.Empty;
+                    tbEndTime.Text = string.Empty;
+                }
 
             }
             else
@@ -409,6 +451,26 @@ namespace PayrollSystem.Employee
                 InitializedEmpMaster();
                 showAll();
                 btnEdit.Enabled = true;
+            }            
+        }
+
+        private void cmbWorkShift_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataView dvWS = new DataView();
+                dvWS = ShiftSchedule.DefaultView;
+                dvWS.RowFilter = "ID=" + cmbWorkShift.SelectedValue;
+
+                if (dvWS.Count > 0)
+                {
+                    tbStartTime.Text = DateTime.Parse(dvWS[0].Row["StartTime"].ToString()).ToShortTimeString();
+                    tbEndTime.Text = DateTime.Parse(dvWS[0].Row["EndTime"].ToString()).ToShortTimeString();
+                }
+            }
+            catch (Exception)
+            {
+
             }            
         }
     }

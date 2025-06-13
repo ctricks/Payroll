@@ -1,6 +1,7 @@
 ﻿using PayrollSystem.Database;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace PayrollSystem.Functions
     public class clsUserFunctions
     {
         clsDatabase cDB = new clsDatabase();
-        public bool LoginUsers(string username, string password)
+        public bool LoginUsers(string username, string password,out int UserIDLogin)
         {
             bool result = false;
 
@@ -20,9 +21,18 @@ namespace PayrollSystem.Functions
 
             string QueryUser = cDB.setQueryBuilder(dbColumnName,dbTableName,dbCriteria);
 
-            result = cDB.getRecords(QueryUser).Rows.Count > 0;
+            DataTable dtResult = cDB.getRecords(QueryUser);
 
-            return result;
+            UserIDLogin = -1;
+
+            bool validUser = int.TryParse(dtResult.Rows[0]["id"].ToString(),out UserIDLogin);
+
+            if (validUser)
+            {
+                UserIDLogin = int.Parse(dtResult.Rows[0]["id"].ToString());
+            }
+
+            return result = validUser;
         }
         public bool validateLoginUsers(string username, string password)
         {

@@ -15,6 +15,7 @@ namespace PayrollSystem
     public partial class MainForm : Form
     {
         IniFile MyIni = new IniFile("Settings.ini");
+        public int UserIDLogin;
         private void InitializedMainForm()
         {
             string MainBackground = MyIni.Read("MainBackground", "ApplicationSettings");
@@ -91,6 +92,7 @@ namespace PayrollSystem
         {
             Attendance.AttendanceProcessing attendanceProcessing = new Attendance.AttendanceProcessing();   
             attendanceProcessing.MdiParent = this;
+            attendanceProcessing.intUserID = UserIDLogin;
             attendanceProcessing.Show();
         }
     }

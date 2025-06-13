@@ -59,18 +59,20 @@ namespace PayrollSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            int UserIDLogin = -1;
             if(!clsUserFunc.validateLoginUsers(tbUsername.Text, tbPassword.Text))
             {
                 MessageBox.Show("Error: Invalid Username or Password", "Payroll System : Please enter your credential", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(!clsUserFunc.LoginUsers(tbUsername.Text,tbPassword.Text))
+            if(!clsUserFunc.LoginUsers(tbUsername.Text,tbPassword.Text,out UserIDLogin))
             {
                 MessageBox.Show("Error: Username not found or Invalid Password. Please ask your adminstrator", "Payroll System : Please enter your credential", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             this.Hide();
             MainForm mainForm = new MainForm();
+            mainForm.UserIDLogin =  UserIDLogin;
             mainForm.ShowDialog();
         }
     }
