@@ -170,12 +170,17 @@
             // 
             // dgAttendance
             // 
-            this.dgAttendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgAttendance.AllowUserToAddRows = false;
+            this.dgAttendance.AllowUserToDeleteRows = false;
+            this.dgAttendance.AllowUserToOrderColumns = true;
+            this.dgAttendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgAttendance.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAttendance.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgAttendance.Location = new System.Drawing.Point(6, 19);
             this.dgAttendance.Name = "dgAttendance";
-            this.dgAttendance.Size = new System.Drawing.Size(715, 290);
+            this.dgAttendance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgAttendance.Size = new System.Drawing.Size(715, 352);
             this.dgAttendance.TabIndex = 0;
             // 
             // groupBox2

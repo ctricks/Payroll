@@ -153,9 +153,15 @@ namespace PayrollSystem.Employee
                 MessageBox.Show("Error: Cannot save employee details. Please check your entries", "Create User : Invalid Employee ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(tbBioMetricID.Text))
+            //if (string.IsNullOrEmpty(tbBioMetricID.Text))
+            //{
+            //    MessageBox.Show("Error: Cannot save employee details. Please check your entries", "Create User : Invalid Biometric ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+
+            if (isEmployeeIDExist(tbEmployeeID.Text) && isEdit == false)
             {
-                MessageBox.Show("Error: Cannot save employee details. Please check your entries", "Create User : Invalid Biometric ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: Cannot save employee details. Please check your entries", "Create User : Employee Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -255,6 +261,18 @@ namespace PayrollSystem.Employee
         private bool isEmployeeExists(string LastName, string FirstName, string MiddleName)
         {
             string sQuery = cDB.setQueryBuilder("ID", "tblPSD_201File", " LastName = '" + LastName + "' and FirstName = '" + FirstName + "' and MiddleName='" + MiddleName + "'");
+            if (cDB.getRecords(sQuery).Rows.Count >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool isEmployeeIDExist(string EmployeeID)
+        {
+            string sQuery = cDB.setQueryBuilder("ID", "tblPSD_201File", " EmployeeID = " + EmployeeID);
             if (cDB.getRecords(sQuery).Rows.Count >= 1)
             {
                 return true;

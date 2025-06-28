@@ -1,5 +1,6 @@
 ﻿using OfficeOpenXml;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
+using OfficeOpenXml.FormulaParsing.Utilities;
 using OfficeOpenXml.Style;
 using PayrollSystem.Attendance;
 using PayrollSystem.Database;
@@ -10,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +19,8 @@ namespace PayrollSystem.Functions
 {
     public class clsAttendance
     {
-        clsDatabase dbHelper = new clsDatabase();   
+        clsDatabase dbHelper = new clsDatabase();  
+        clsHelpers helper = new clsHelpers();
         public class ExcelInformation
         {
             public string ExcelFilePath { get; set; }
@@ -58,7 +61,7 @@ namespace PayrollSystem.Functions
                     foreach (string FilenameFound in Directory.GetFiles(DirectoryPath))
                     {
                         FileInfo FileInfo = new FileInfo(FilenameFound);
-                        if(FileInfo.Extension == ".xlsx")
+                        if(FileInfo.Extension == ".csv" || FileInfo.Extension == ".xlsx" || FileInfo.Extension == ".xls")
                         {
                             excelInformation.Filename = FileInfo.Name;
                             excelInformation.DateProcess = DateTime.Now;
@@ -89,17 +92,25 @@ namespace PayrollSystem.Functions
             
             List<ExcelInfo> Elist = new List<ExcelInfo>();
 
-
-            Elist = ReadExcel(fi.FullName);
-
-            if (Elist.Count > 0)
+            if(fi.Extension.ToString() == ".xlsx" || fi.Extension.ToString() == ".xlsx")
             {
-                foreach (int E in Elist.Select(y=>y.BiometricID).Distinct().ToList())
+                Elist = ReadExcel(fi.FullName);
+            }else if(fi.Extension.ToString() == ".csv")
+            {
+                Elist = ReadCSV(fi.FullName); 
+            }
+
+            var EmpFound = Elist.GroupBy(o => o.EmployeeNumber).Select(g => g.First()).ToList();
+
+            if (EmpFound.Count > 0)
+            {
+                foreach (ExcelInfo E in EmpFound)
                 {
-                    ai.BiometricID = E;
-                    Elist.Find(x => x.BiometricID == ai.BiometricID);
+                    ai = new AttendanceInfo();
+                    ai.EmpNumber = E.EmployeeNumber;
+                    ai.EmployeeName = E.EmployeeName;
                     ai.SourceFilename = fi.Name;
-                    ai.ExcelInfo = Elist;
+                    ai.ExcelInfo = Elist.Where(x=>x.EmployeeNumber == E.EmployeeNumber).ToList();
                     AttendInfo.Add(ai);
                 }
             }
@@ -118,6 +129,89 @@ namespace PayrollSystem.Functions
 
             }
             return AttendInfo;
+        }
+        private List<ExcelInfo>ReadCSV(string CSVFilePath)
+        {
+            List<ExcelInfo> Ei = new List<ExcelInfo>();
+            try
+            {   
+                FileInfo fi = new FileInfo(CSVFilePath);
+                ExcelInfo xi = new ExcelInfo();
+
+                string[] FileContent = File.ReadAllLines(fi.FullName);
+
+                if (FileContent[FileContent.Count() - 1].ToString() != ",,,,,,")
+                {
+                    //Append to last line
+                    File.AppendAllText(fi.FullName, ",,,,,,");
+                }
+                FileContent = File.ReadAllLines(fi.FullName);
+
+                List<EmployeeDetails> employeeDetail = new List<EmployeeDetails>();
+
+
+
+                bool isEmpFound = false;
+                int isIntegerFound = -1;
+
+                if (FileContent.Count() > 0)
+                {
+                    ExcelInfo ei = new ExcelInfo();
+                    string EmployeeNumber = string.Empty;
+                    string EmployeeName = string.Empty;
+                    foreach (string fileline in FileContent)
+                    {
+                        string LineContent = fileline;
+
+                        if (fileline.Substring(0, 1) == "\"" && fileline != ",,,,,,")
+                        {
+                            isEmpFound = true;
+                            EmployeeDetails empData = new EmployeeDetails();
+                            string EmpPattern = "\\((\\d+)\\)";
+                            EmployeeNumber = helper.GetEmployeeNumber(helper.GetRegex(EmpPattern, LineContent));
+                            string EmpNamePattern = "\\\"\\S.+\\,.+\\(";
+                            EmployeeName = helper.GetRegex(EmpNamePattern, LineContent).Replace("\"", "").Replace("(", "");
+                            employeeDetail.Add(empData);
+                            continue;
+                        }
+                        if (isEmpFound)
+                        {
+                            isIntegerFound = helper.GetInteger(LineContent.Substring(0, 1));
+                            if (isIntegerFound > 0)
+                            {
+                                string[] timeDetails = LineContent.Split(',');
+                                string DateFound = timeDetails[0].Split(' ')[0].ToString();
+                                ei.DateFound = DateFound;
+                                ei.EmployeeNumber = EmployeeNumber;
+                                ei.EmployeeName = EmployeeName;
+                                ei.TimeIn_1_Found = timeDetails[1].ToString();
+                                ei.TimeIn_1 = helper.GetTimeConvert(ei.TimeIn_1_Found);
+                                ei.TimeIn_2_Found = timeDetails[2].ToString();
+                                ei.TimeIn_2 = helper.GetTimeConvert(ei.TimeIn_2_Found);
+                                ei.TimeIn_3_Found = timeDetails[3].ToString();
+                                ei.TimeIn_3 = helper.GetTimeConvert(ei.TimeIn_3_Found);
+                                ei.TimeIn_4_Found = timeDetails[4].ToString();
+                                ei.TimeIn_4 = helper.GetTimeConvert(ei.TimeIn_4_Found);
+                                ei.TimeIn_5_Found = timeDetails[5].ToString();
+                                ei.TimeIn_5 = helper.GetTimeConvert(ei.TimeIn_5_Found);
+                                ei.TimeIn_6_Found = timeDetails[6].ToString();
+                                ei.TimeIn_6 = helper.GetTimeConvert(ei.TimeIn_6_Found);
+                                Ei.Add(ei);
+                                ei = new ExcelInfo();
+                            }
+                        }
+                        if (LineContent.Substring(0, 1) == ",")
+                        {
+                            isEmpFound = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message.ToString(),"Error Reading Document. Please check",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            return Ei;
         }
         private List<ExcelInfo>ReadExcel(string ExcelFilepath)
         {

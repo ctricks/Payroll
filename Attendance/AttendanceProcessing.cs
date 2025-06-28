@@ -140,19 +140,22 @@ namespace PayrollSystem.Attendance
             if (ScannedInfo.Count > 0)
             {
                 DataTable dtEmplist = new DataTable();
-                dtEmplist.Columns.Add("BiometricID");
+                dtEmplist.Columns.Add("EmployeeNumber");
                 dtEmplist.Columns.Add("Employee");
                 dtEmplist.Columns.Add("Verify",System.Type.GetType("System.Boolean"));
 
-                foreach (int ei in ScannedInfo.Select(x=>x.BiometricID).Distinct()) 
+                foreach (AttendanceInfo ei in ScannedInfo) 
                 {
                     DataRow drow = dtEmplist.NewRow();
-                    drow["BiometricID"] = ei.ToString();
-                    drow["Employee"] = attendancehelper.GetEmployeeNameByBiometricID(ei);
+                    drow["EmployeeNumber"] = ei.EmpNumber.ToString();
+                    drow["Employee"] = ei.EmployeeName; //attendancehelper.GetEmployeeNameByBiometricID(ei);
                     drow["Verify"] = false;
                     dtEmplist.Rows.Add(drow);
                 }
                 dgEmpList.DataSource = dtEmplist;
+            }else
+            {
+                MessageBox.Show("Error: No Employee found on the file. Please check it first", "No Employee found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -160,33 +163,42 @@ namespace PayrollSystem.Attendance
         {
             if (dgEmpList.SelectedRows.Count == 1)
             {
-                string BioMetricID = dgEmpList.SelectedRows[0].Cells[0].Value.ToString();
+                string EmployeeID = dgEmpList.SelectedRows[0].Cells[0].Value.ToString();
                 string xlsfilename = listView1.SelectedItems[0].Text;
                 List<AttendanceInfo> ScannedInfo = ScannedExcelInformation.Find(x => x.Filename == xlsfilename).AttendanceInfo;
                 if (ScannedInfo.Count > 0)
                 {
-                    List<ExcelInfo> xinfo = ScannedInfo.Find(x => x.BiometricID == int.Parse(BioMetricID)).ExcelInfo;
+                    List<ExcelInfo> xinfo = ScannedInfo.Find(x => x.EmpNumber == EmployeeID).ExcelInfo;
 
                     if (xinfo != null)
                     {
                         DataTable dtEmpAtt = new DataTable();
                         dtEmpAtt.Columns.Add("Date");
                         dtEmpAtt.Columns.Add("Day");
-                        dtEmpAtt.Columns.Add("Time_1");
-                        dtEmpAtt.Columns.Add("Time_2");
-                        dtEmpAtt.Columns.Add("Time_3");
-                        dtEmpAtt.Columns.Add("Time_4");
+                        dtEmpAtt.Columns.Add("Time IN");
+                        dtEmpAtt.Columns.Add("Time OUT");
+                        dtEmpAtt.Columns.Add("Time IN 2");
+                        dtEmpAtt.Columns.Add("Time OUT 2");
+                        dtEmpAtt.Columns.Add("Time IN 3");
+                        dtEmpAtt.Columns.Add("Time OUT 3");
+
                         dtEmpAtt.Columns.Add("Work_Hours");
 
                         foreach (ExcelInfo excelInfo in xinfo)
                         {
                             DataRow drow = dtEmpAtt.NewRow();
-                            drow["Date"] = excelInfo.AttendanceDate.ToString("MM-dd-yyyy");
-                            drow["Day"] = excelInfo.AttendanceDate.DayOfWeek.ToString();
-                            drow["Time_1"] = excelInfo.TimeIn_1.ToString("HH:mm:ss");
-                            drow["Time_2"] = excelInfo.TimeIn_2.ToString("HH:mm:ss");
-                            drow["Time_3"] = excelInfo.TimeIn_3.ToString("HH:mm:ss");
-                            drow["Time_4"] = excelInfo.TimeIn_4.ToString("HH:mm:ss");
+                            drow["Date"] = excelInfo.DateFound;
+
+                            DateTime dtFound = helpers.getDate(excelInfo.DateFound);
+
+                            drow["Day"] =dtFound.DayOfWeek.ToString();
+                            drow[2] = excelInfo.TimeIn_1.ToString("HH:mm:ss") == "00:00:00" ? "": excelInfo.TimeIn_1.ToString("HH:mm:ss");
+                            drow[3] = excelInfo.TimeIn_2.ToString("HH:mm:ss") == "00:00:00" ? "" : excelInfo.TimeIn_2.ToString("HH:mm:ss");
+                            drow[4] = excelInfo.TimeIn_3.ToString("HH:mm:ss") == "00:00:00" ? "" : excelInfo.TimeIn_3.ToString("HH:mm:ss");
+                            drow[5] = excelInfo.TimeIn_4.ToString("HH:mm:ss") == "00:00:00" ? "" : excelInfo.TimeIn_4.ToString("HH:mm:ss");
+                            drow[6] = excelInfo.TimeIn_5.ToString("HH:mm:ss") == "00:00:00" ? "" : excelInfo.TimeIn_5.ToString("HH:mm:ss");
+                            drow[7] = excelInfo.TimeIn_6.ToString("HH:mm:ss") == "00:00:00" ? "" : excelInfo.TimeIn_6.ToString("HH:mm:ss");
+                            
                             drow["Work_Hours"] = excelInfo.TotalTimeRow.ToString("HH:mm:ss"); 
 
                             dtEmpAtt.Rows.Add(drow);

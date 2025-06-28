@@ -22,14 +22,19 @@ namespace PayrollSystem.Functions
             string QueryUser = cDB.setQueryBuilder(dbColumnName,dbTableName,dbCriteria);
 
             DataTable dtResult = cDB.getRecords(QueryUser);
-
+            bool validUser = false;
             UserIDLogin = -1;
-
-            bool validUser = int.TryParse(dtResult.Rows[0]["id"].ToString(),out UserIDLogin);
-
-            if (validUser)
+            if (dtResult.Rows.Count > 0)
             {
-                UserIDLogin = int.Parse(dtResult.Rows[0]["id"].ToString());
+                validUser = int.TryParse(dtResult.Rows[0]["id"].ToString(), out UserIDLogin);
+
+                if (validUser)
+                {
+                    UserIDLogin = int.Parse(dtResult.Rows[0]["id"].ToString());
+                }
+            } else
+            {
+                validUser = false;
             }
 
             return result = validUser;

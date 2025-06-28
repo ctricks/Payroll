@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbEmployeeSearch = new System.Windows.Forms.TextBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
@@ -91,6 +91,8 @@
             this.tbRecordID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbOtherInfo = new System.Windows.Forms.TabPage();
+            this.tbEndTime = new System.Windows.Forms.TextBox();
+            this.tbStartTime = new System.Windows.Forms.TextBox();
             this.cmbWorkShift = new System.Windows.Forms.ComboBox();
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -148,8 +150,6 @@
             this.newRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbStartTime = new System.Windows.Forms.TextBox();
-            this.tbEndTime = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmpList)).BeginInit();
@@ -433,9 +433,9 @@
             // 
             // Birthday
             // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Birthday.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Birthday.DefaultCellStyle = dataGridViewCellStyle1;
             this.Birthday.HeaderText = "Birthday";
             this.Birthday.Name = "Birthday";
             this.Birthday.Width = 120;
@@ -720,6 +720,7 @@
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Biometrics ID:";
+            this.label6.Visible = false;
             // 
             // label5
             // 
@@ -736,6 +737,7 @@
             this.tbBioMetricID.Name = "tbBioMetricID";
             this.tbBioMetricID.Size = new System.Drawing.Size(84, 20);
             this.tbBioMetricID.TabIndex = 3;
+            this.tbBioMetricID.Visible = false;
             // 
             // tbEmployeeID
             // 
@@ -803,6 +805,22 @@
             this.tbOtherInfo.TabIndex = 1;
             this.tbOtherInfo.Text = "Other Information";
             this.tbOtherInfo.UseVisualStyleBackColor = true;
+            // 
+            // tbEndTime
+            // 
+            this.tbEndTime.Location = new System.Drawing.Point(510, 163);
+            this.tbEndTime.Name = "tbEndTime";
+            this.tbEndTime.ReadOnly = true;
+            this.tbEndTime.Size = new System.Drawing.Size(69, 20);
+            this.tbEndTime.TabIndex = 34;
+            // 
+            // tbStartTime
+            // 
+            this.tbStartTime.Location = new System.Drawing.Point(435, 163);
+            this.tbStartTime.Name = "tbStartTime";
+            this.tbStartTime.ReadOnly = true;
+            this.tbStartTime.Size = new System.Drawing.Size(69, 20);
+            this.tbStartTime.TabIndex = 33;
             // 
             // cmbWorkShift
             // 
@@ -1286,22 +1304,6 @@
             this.saveRecordToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.saveRecordToolStripMenuItem.Text = "Save Record";
             this.saveRecordToolStripMenuItem.Click += new System.EventHandler(this.saveRecordToolStripMenuItem_Click);
-            // 
-            // tbStartTime
-            // 
-            this.tbStartTime.Location = new System.Drawing.Point(435, 163);
-            this.tbStartTime.Name = "tbStartTime";
-            this.tbStartTime.ReadOnly = true;
-            this.tbStartTime.Size = new System.Drawing.Size(69, 20);
-            this.tbStartTime.TabIndex = 33;
-            // 
-            // tbEndTime
-            // 
-            this.tbEndTime.Location = new System.Drawing.Point(510, 163);
-            this.tbEndTime.Name = "tbEndTime";
-            this.tbEndTime.ReadOnly = true;
-            this.tbEndTime.Size = new System.Drawing.Size(69, 20);
-            this.tbEndTime.TabIndex = 34;
             // 
             // EmpMasterFile
             // 

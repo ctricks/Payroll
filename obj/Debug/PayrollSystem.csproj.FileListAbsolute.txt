@@ -31,3 +31,23 @@ H:\backUp Payroll\NEW SYSTEM PROPOSAL\GIT COPY\Payroll\obj\Debug\PayrollSystem.c
 H:\backUp Payroll\NEW SYSTEM PROPOSAL\GIT COPY\Payroll\obj\Debug\PayrollS.23757077.Up2Date
 H:\backUp Payroll\NEW SYSTEM PROPOSAL\GIT COPY\Payroll\obj\Debug\PayrollSystem.exe
 H:\backUp Payroll\NEW SYSTEM PROPOSAL\GIT COPY\Payroll\obj\Debug\PayrollSystem.pdb
+D:\PAYROLL\database\Payroll\bin\Debug\PSDB.mdb
+D:\PAYROLL\database\Payroll\bin\Debug\Resources\background.jpeg
+D:\PAYROLL\database\Payroll\bin\Debug\Settings.ini
+D:\PAYROLL\database\Payroll\bin\Debug\Resources\Template\TimeAttendanceExcelTemplate.xlsx
+D:\PAYROLL\database\Payroll\bin\Debug\PayrollSystem.exe.config
+D:\PAYROLL\database\Payroll\bin\Debug\PayrollSystem.exe
+D:\PAYROLL\database\Payroll\bin\Debug\PayrollSystem.pdb
+D:\PAYROLL\database\Payroll\bin\Debug\EPPlus.dll
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.csproj.AssemblyReference.cache
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.exe.config
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.Attendance.AttendanceProcessing.resources
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.Employee.EmpMasterFile.resources
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.frmLogin.resources
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.MainForm.resources
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.Properties.Resources.resources
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.csproj.GenerateResource.cache
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.csproj.CoreCompileInputs.cache
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollS.23757077.Up2Date
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.exe
+D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.pdb
