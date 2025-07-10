@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "D:\\PAYROLL\\database\\Payroll\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|d:\\payroll\\database\\payroll\\database\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:database\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|D:\\PAYROLL\\database\\Payroll\\employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|D:\\PAYROLL\\database\\Payroll\\functions\\clsattendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:functions\\clsattendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|d:\\payroll\\database\\payroll\\employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|D:\\PAYROLL\\database\\Payroll\\database\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:database\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|d:\\payroll\\database\\payroll\\employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|D:\\PAYROLL\\database\\Payroll\\employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -23,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|d:\\payroll\\database\\payroll\\attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|D:\\PAYROLL\\database\\Payroll\\attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -78,19 +78,6 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EmpMasterFile.cs",
-              "DocumentMoniker": "D:\\PAYROLL\\database\\Payroll\\Employee\\EmpMasterFile.cs",
-              "RelativeDocumentMoniker": "Employee\\EmpMasterFile.cs",
-              "ToolTip": "D:\\PAYROLL\\database\\Payroll\\Employee\\EmpMasterFile.cs",
-              "RelativeToolTip": "Employee\\EmpMasterFile.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAmwBIBAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T23:02:01.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "EmpMasterFile.cs [Design]",
               "DocumentMoniker": "D:\\PAYROLL\\database\\Payroll\\Employee\\EmpMasterFile.cs",
@@ -111,7 +98,8 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T02:27:46.363Z"
+              "WhenOpened": "2025-05-26T02:27:46.363Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -128,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "clsAttendance.cs",
               "DocumentMoniker": "D:\\PAYROLL\\database\\Payroll\\Functions\\clsAttendance.cs",
               "RelativeDocumentMoniker": "Functions\\clsAttendance.cs",
@@ -137,6 +125,32 @@
               "ViewState": "AgIAAMgAAAAAAAAAAAAAAM8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-27T16:31:22.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsDatabase.cs",
+              "DocumentMoniker": "D:\\PAYROLL\\database\\Payroll\\Database\\clsDatabase.cs",
+              "RelativeDocumentMoniker": "Database\\clsDatabase.cs",
+              "ToolTip": "D:\\PAYROLL\\database\\Payroll\\Database\\clsDatabase.cs",
+              "RelativeToolTip": "Database\\clsDatabase.cs",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAuwO8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T01:53:06.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmpMasterFile.cs",
+              "DocumentMoniker": "D:\\PAYROLL\\database\\Payroll\\Employee\\EmpMasterFile.cs",
+              "RelativeDocumentMoniker": "Employee\\EmpMasterFile.cs",
+              "ToolTip": "D:\\PAYROLL\\database\\Payroll\\Employee\\EmpMasterFile.cs",
+              "RelativeToolTip": "Employee\\EmpMasterFile.cs",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAmwBMBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T23:02:01.985Z",
               "EditorCaption": ""
             },
             {
@@ -150,19 +164,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-30T01:17:50.025Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsDatabase.cs",
-              "DocumentMoniker": "D:\\PAYROLL\\database\\Payroll\\Database\\clsDatabase.cs",
-              "RelativeDocumentMoniker": "Database\\clsDatabase.cs",
-              "ToolTip": "D:\\PAYROLL\\database\\Payroll\\Database\\clsDatabase.cs",
-              "RelativeToolTip": "Database\\clsDatabase.cs",
-              "ViewState": "AgIAANIAAAAAAAAAAAA8wOsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T01:53:06.756Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -200,7 +201,8 @@
               "RelativeToolTip": "Attendance\\AttendanceInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T17:06:21.713Z"
+              "WhenOpened": "2025-06-27T17:06:21.713Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -212,7 +214,8 @@
               "RelativeToolTip": "Settings.ini",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002768|",
-              "WhenOpened": "2025-05-21T23:05:13.676Z"
+              "WhenOpened": "2025-05-21T23:05:13.676Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -224,7 +227,8 @@
               "RelativeToolTip": "frmLogin.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAArwEsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T01:50:55.292Z"
+              "WhenOpened": "2025-05-26T01:50:55.292Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -236,7 +240,8 @@
               "RelativeToolTip": "MainForm.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAcwF4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T02:27:49.259Z"
+              "WhenOpened": "2025-05-26T02:27:49.259Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -248,7 +253,8 @@
               "RelativeToolTip": "Functions\\clsReferenceTable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T14:33:25.868Z"
+              "WhenOpened": "2025-06-13T14:33:25.868Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -259,7 +265,8 @@
               "ToolTip": "D:\\PAYROLL\\database\\Payroll\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T02:27:48.217Z"
+              "WhenOpened": "2025-05-26T02:27:48.217Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -270,7 +277,8 @@
               "ToolTip": "D:\\PAYROLL\\database\\Payroll\\frmLogin.cs [Design]",
               "RelativeToolTip": "frmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T01:50:53.659Z"
+              "WhenOpened": "2025-05-26T01:50:53.659Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
