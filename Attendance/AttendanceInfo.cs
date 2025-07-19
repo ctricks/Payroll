@@ -13,8 +13,15 @@ namespace PayrollSystem.Attendance
         public string EmployeeName { get; set; }
         public string SourceFilename { get; set; }
         public List<ExcelInfo> ExcelInfo { get; set; }
+        public WorkingScheduleInfo WorkShift {  get; set; }
         public DateTime TotalHoursWork { get; set; }
         public int DaysPresent { get; set; }
+    }
+    public class WorkingScheduleInfo
+    {
+        public string WSLabel { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
     }
     public class ExcelInfo
     { 
@@ -37,7 +44,14 @@ namespace PayrollSystem.Attendance
         public DateTime TimeIn_5 { get; set; }
         public DateTime TimeIn_6 { get; set; }
 
+        public DateTime Late {  get; set; }
+        public DateTime UnderTime { get; set; }
+
+        public DateTime TimeInFinal { get; set; }
+        public DateTime TimeOutFinal { get; set; }
+
         public DateTime TotalTimeRow { get; set; }
+        public bool isAllRowBlank { get; set; }
 
     }
 

@@ -189,7 +189,7 @@ namespace PayrollSystem.Employee
                 dtEmp.Columns.Add("isNumeric");
                 dtEmp.Columns.Add("Value");
 
-                dtEmp.Rows.Add("EmpID", "T", tbEmployeeID.Text);
+                dtEmp.Rows.Add("EmpID", "F", tbEmployeeID.Text);
                 dtEmp.Rows.Add("BioID", "T", tbBioMetricID.Text);
                 dtEmp.Rows.Add("EmpStatus", "F", cmbEmpStatus.Text);
                 dtEmp.Rows.Add("LastName", "F", tbLastName.Text);
@@ -272,7 +272,7 @@ namespace PayrollSystem.Employee
         }
         private bool isEmployeeIDExist(string EmployeeID)
         {
-            string sQuery = cDB.setQueryBuilder("ID", "tblPSD_201File", " EmployeeID = " + EmployeeID);
+            string sQuery = cDB.setQueryBuilder("ID", "tblPSD_201File", " EmpID = '" + EmployeeID+"'");
             if (cDB.getRecords(sQuery).Rows.Count >= 1)
             {
                 return true;

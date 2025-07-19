@@ -73,6 +73,7 @@ namespace PayrollSystem
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.UserIDLogin =  UserIDLogin;
+            mainForm.UserNameLogin = tbUsername.Text;
             mainForm.ShowDialog();
         }
     }

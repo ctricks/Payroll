@@ -37,9 +37,11 @@
             this.masterlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shiftScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.systemPreferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,19 +71,19 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.logOutToolStripMenuItem.Text = "Log-&Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
             // 
             // exToolStripMenuItem
             // 
             this.exToolStripMenuItem.Name = "exToolStripMenuItem";
-            this.exToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.exToolStripMenuItem.Text = "E&xit Application";
             this.exToolStripMenuItem.Click += new System.EventHandler(this.exToolStripMenuItem_Click);
             // 
@@ -96,7 +98,7 @@
             // masterlistToolStripMenuItem
             // 
             this.masterlistToolStripMenuItem.Name = "masterlistToolStripMenuItem";
-            this.masterlistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.masterlistToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.masterlistToolStripMenuItem.Text = "&Masterfile";
             this.masterlistToolStripMenuItem.Click += new System.EventHandler(this.masterlistToolStripMenuItem_Click);
             // 
@@ -111,9 +113,25 @@
             // processingToolStripMenuItem
             // 
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
-            this.processingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.processingToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.processingToolStripMenuItem.Text = "&Processing";
             this.processingToolStripMenuItem.Click += new System.EventHandler(this.processingToolStripMenuItem_Click);
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.shiftScheduleToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.systemPreferenceToolStripMenuItem});
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.maintenanceToolStripMenuItem.Text = "&Maintenance";
+            // 
+            // shiftScheduleToolStripMenuItem
+            // 
+            this.shiftScheduleToolStripMenuItem.Name = "shiftScheduleToolStripMenuItem";
+            this.shiftScheduleToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.shiftScheduleToolStripMenuItem.Text = "&Shift Schedule";
             // 
             // statusStrip1
             // 
@@ -123,19 +141,16 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // maintenanceToolStripMenuItem
+            // toolStripSeparator2
             // 
-            this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.shiftScheduleToolStripMenuItem});
-            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.maintenanceToolStripMenuItem.Text = "&Maintenance";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
-            // shiftScheduleToolStripMenuItem
+            // systemPreferenceToolStripMenuItem
             // 
-            this.shiftScheduleToolStripMenuItem.Name = "shiftScheduleToolStripMenuItem";
-            this.shiftScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.shiftScheduleToolStripMenuItem.Text = "&Shift Schedule";
+            this.systemPreferenceToolStripMenuItem.Name = "systemPreferenceToolStripMenuItem";
+            this.systemPreferenceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.systemPreferenceToolStripMenuItem.Text = "System Preference";
             // 
             // MainForm
             // 
@@ -150,6 +165,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payroll Sytem ver 1.0";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -173,5 +189,7 @@
         private System.Windows.Forms.ToolStripMenuItem processingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem shiftScheduleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem systemPreferenceToolStripMenuItem;
     }
 }

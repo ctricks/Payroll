@@ -51,3 +51,22 @@ D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.csproj.CoreCompileInputs.cac
 D:\PAYROLL\database\Payroll\obj\Debug\PayrollS.23757077.Up2Date
 D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.exe
 D:\PAYROLL\database\Payroll\obj\Debug\PayrollSystem.pdb
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\PSDB.mdb
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\Resources\background.jpeg
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\Settings.ini
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\Resources\Template\TimeAttendanceExcelTemplate.xlsx
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\PayrollSystem.exe.config
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\PayrollSystem.exe
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\PayrollSystem.pdb
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\bin\Debug\EPPlus.dll
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.csproj.AssemblyReference.cache
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.Attendance.AttendanceProcessing.resources
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.Employee.EmpMasterFile.resources
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.frmLogin.resources
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.MainForm.resources
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.Properties.Resources.resources
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.csproj.GenerateResource.cache
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.csproj.CoreCompileInputs.cache
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollS.23757077.Up2Date
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.exe
+H:\backUp Payroll\NEW SYSTEM PROPOSAL\PAYROLL_DESKTOP_GIT\Payroll\obj\Debug\PayrollSystem.pdb

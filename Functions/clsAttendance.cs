@@ -49,11 +49,33 @@ namespace PayrollSystem.Functions
             return strResult;
         }
 
+        public WorkingScheduleInfo GetWorkingShiftByEmployeeID(string EmployeeID)
+        {
+            WorkingScheduleInfo WS = new WorkingScheduleInfo(); 
+            try
+            {
+                string Query = "Select e.ShiftSchedule,s.Label,s.StartTime,s.EndTime from tblPSD_201File e inner join tblPSD_ShiftSchedule s on s.id = e.ShiftSchedule where e.EmpID = '" + EmployeeID + "'";
+                DataTable dtResult = dbHelper.getRecords(Query);
+                
+                if (dtResult.Rows.Count > 0)
+                {
+                    WS.WSLabel = dtResult.Rows[0][1].ToString();
+                    WS.StartTime = helper.GetTimeConvert(dtResult.Rows[0][2].ToString());
+                    WS.EndTime = helper.GetTimeConvert(dtResult.Rows[0][3].ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return WS;
+        }
+
         public List<ExcelInformation> ScanDirectory(string DirectoryPath,int UserID)
         {
             ExcelInformation excelInformation = new ExcelInformation();
             List<ExcelInformation> XlsResult = new List<ExcelInformation>();
-            List<AttendanceInfo> AttendanceInformation = new List<AttendanceInfo>();    
+            List<AttendanceInfo> AttendanceInformation = new List<AttendanceInfo>();              
             try
             {
                 if (Directory.Exists(DirectoryPath))
@@ -68,7 +90,7 @@ namespace PayrollSystem.Functions
                             excelInformation.ExcelFilePath = FileInfo.FullName;
                             excelInformation.UserIDProcess = UserID;                            
                             AttendanceInformation = GetAttendanceInfo(FileInfo.FullName);
-                            excelInformation.AttendanceInfo = AttendanceInformation;
+                            excelInformation.AttendanceInfo = AttendanceInformation;                            
                             XlsResult.Add(excelInformation);
                         }
                     }
@@ -89,6 +111,7 @@ namespace PayrollSystem.Functions
 
             AttendanceInfo ai = new AttendanceInfo();
             FileInfo fi = new FileInfo(ExcelFilepath);
+            WorkingScheduleInfo workingSchedule = new WorkingScheduleInfo();
             
             List<ExcelInfo> Elist = new List<ExcelInfo>();
 
@@ -109,14 +132,159 @@ namespace PayrollSystem.Functions
                     ai = new AttendanceInfo();
                     ai.EmpNumber = E.EmployeeNumber;
                     ai.EmployeeName = E.EmployeeName;
+                    ai.WorkShift = GetWorkingShiftByEmployeeID(E.EmployeeNumber);
                     ai.SourceFilename = fi.Name;
-                    ai.ExcelInfo = Elist.Where(x=>x.EmployeeNumber == E.EmployeeNumber).ToList();
+                    ai.ExcelInfo = ComputeWorkingHours(Elist.Where(x=>x.EmployeeNumber == E.EmployeeNumber).ToList(),ai.WorkShift);
                     AttendInfo.Add(ai);
                 }
             }
 
             return AttendInfo;
         }
+        private List<ExcelInfo> ComputeWorkingHours(List<ExcelInfo> Elist,WorkingScheduleInfo WSI)
+        {
+            List<ExcelInfo> FinalExcelInfo = new List<ExcelInfo>();
+            try
+            {
+                foreach (ExcelInfo E in Elist)
+                {
+                    if (!E.isAllRowBlank)
+                    {
+                        E.Late = TotalLateHours(E.TimeInFinal, E.TimeOutFinal, WSI);
+                        E.UnderTime = TotalUnderHours(E.TimeInFinal, E.TimeOutFinal, WSI);
+                        E.TotalTimeRow = TotalWorkHours(E.TimeInFinal, E.TimeOutFinal, WSI);
+                    }
+                    FinalExcelInfo.Add(E);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return FinalExcelInfo;
+        }
+        private DateTime TotalUnderHours(DateTime In, DateTime Out, WorkingScheduleInfo WSI)
+        {
+            DateTime dtTotalWorkHours = new DateTime();
+            try
+            {
+                TimeSpan time1 = TimeSpan.Parse(In.ToString("HH:mm:ss"));
+                TimeSpan time2 = TimeSpan.Parse(Out.ToString("HH:mm:ss"));
+
+                TimeSpan Diff = new TimeSpan();
+                string TotalHours = "00:00:00";
+
+                if (In >= WSI.StartTime && Out >= WSI.EndTime)
+                {
+                    time1 = TimeSpan.Parse(In.ToString("HH:mm:ss"));
+                    time2 = TimeSpan.Parse(WSI.EndTime.ToString("HH:mm:ss"));
+
+                    Diff = time2 - time1;
+                    TotalHours = Diff.ToString(@"hh\:mm\:ss");
+                }
+                else if ((In <= WSI.StartTime || In >= WSI.StartTime) && Out < WSI.EndTime)
+                {
+                    time1 = TimeSpan.Parse(Out.ToString("HH:mm:ss"));
+                    time2 = TimeSpan.Parse(WSI.EndTime.ToString("HH:mm:ss"));
+
+                    Diff = time2 - time1;
+                    TotalHours = Diff.ToString(@"hh\:mm\:ss");
+                }
+
+                dtTotalWorkHours = DateTime.Parse(TotalHours);
+
+                if (TotalHours == "00:00:00")
+                {
+                    dtTotalWorkHours = DateTime.Parse(TotalHours);
+                }
+
+            }
+            catch (Exception)
+            {
+                TimeSpan Diff = TimeSpan.Parse("00:00:00");
+                string TotalHours = Diff.ToString(@"hh\:mm\:ss");
+                dtTotalWorkHours = DateTime.Parse(TotalHours);
+            }
+            return dtTotalWorkHours;
+        }
+        private DateTime TotalLateHours(DateTime In, DateTime Out, WorkingScheduleInfo WSI)
+        {
+            DateTime dtTotalWorkHours = new DateTime();
+            try
+            {
+                TimeSpan time1 = TimeSpan.Parse(In.ToString("HH:mm:ss"));
+                TimeSpan time2 = TimeSpan.Parse(Out.ToString("HH:mm:ss"));
+
+                TimeSpan Diff = new TimeSpan();
+                string TotalHours = "00:00:00";
+
+                if (In > WSI.StartTime)
+                {
+                    time1 = TimeSpan.Parse(In.ToString("HH:mm:ss"));
+                    time2 = TimeSpan.Parse(WSI.StartTime.ToString("HH:mm:ss"));
+
+                    Diff = time2 - time1;
+                    TotalHours = Diff.ToString(@"hh\:mm\:ss");
+                }
+                
+                dtTotalWorkHours = DateTime.Parse(TotalHours);
+
+                if (TotalHours == "00:00:00")
+                {
+                    dtTotalWorkHours = DateTime.Parse(TotalHours);
+                }
+
+            }
+            catch (Exception)
+            {
+                TimeSpan Diff = TimeSpan.Parse("00:00:00");
+                string TotalHours = Diff.ToString(@"hh\:mm\:ss");
+                dtTotalWorkHours = DateTime.Parse(TotalHours);
+            }
+            return dtTotalWorkHours;
+        }
+
+        private DateTime TotalWorkHours(DateTime In, DateTime Out, WorkingScheduleInfo WSI)
+        {
+            DateTime dtTotalWorkHours = new DateTime();
+            try
+            {
+                TimeSpan time1 = TimeSpan.Parse(In.ToString("HH:mm:ss"));
+                TimeSpan time2 = TimeSpan.Parse(Out.ToString("HH:mm:ss"));
+
+                TimeSpan Diff = new TimeSpan();
+
+                if(In <= WSI.StartTime)
+                {
+                    time1 = TimeSpan.Parse(WSI.StartTime.ToString("HH:mm:ss"));
+                }
+
+                if (Out >= WSI.EndTime)
+                {
+                    time2 = TimeSpan.Parse(WSI.EndTime.ToString("HH:mm:ss"));
+                }
+
+
+                Diff = time2 - time1;
+
+                string TotalHours = Diff.ToString(@"hh\:mm\:ss");
+                dtTotalWorkHours = DateTime.Parse(TotalHours);
+
+                if(TotalHours == "00:00:00")
+                {
+                    dtTotalWorkHours = DateTime.Parse(TotalHours);
+                }
+
+            }
+            catch (Exception)
+            {
+                TimeSpan Diff = TimeSpan.Parse("00:00:00");
+                string TotalHours = Diff.ToString(@"hh\:mm\:ss");
+                dtTotalWorkHours = DateTime.Parse(TotalHours);
+            }
+            return dtTotalWorkHours;
+        }
+
         private List<AttendanceInfo>PrepareEmployeeAttendance(List<ExcelInfo>Elist)
         {
             List<AttendanceInfo> AttendInfo = new List<AttendanceInfo>();
@@ -182,6 +350,12 @@ namespace PayrollSystem.Functions
                                 string[] timeDetails = LineContent.Split(',');
                                 string DateFound = timeDetails[0].Split(' ')[0].ToString();
                                 ei.DateFound = DateFound;
+
+                                //if(ei.DateFound == "6/9/2025")
+                                //{
+
+                                //}
+
                                 ei.EmployeeNumber = EmployeeNumber;
                                 ei.EmployeeName = EmployeeName;
                                 ei.TimeIn_1_Found = timeDetails[1].ToString();
@@ -196,6 +370,59 @@ namespace PayrollSystem.Functions
                                 ei.TimeIn_5 = helper.GetTimeConvert(ei.TimeIn_5_Found);
                                 ei.TimeIn_6_Found = timeDetails[6].ToString();
                                 ei.TimeIn_6 = helper.GetTimeConvert(ei.TimeIn_6_Found);
+
+                                if(!string.IsNullOrEmpty(ei.TimeIn_1_Found) && string.IsNullOrEmpty(ei.TimeIn_3_Found) && string.IsNullOrEmpty(ei.TimeIn_5_Found))
+                                {
+                                    ei.TimeInFinal = ei.TimeIn_1;
+                                }else if (!string.IsNullOrEmpty(ei.TimeIn_1_Found) && !string.IsNullOrEmpty(ei.TimeIn_3_Found) && string.IsNullOrEmpty(ei.TimeIn_5_Found))
+                                {
+                                    ei.TimeInFinal = ei.TimeIn_3;
+                                }
+                                else if (!string.IsNullOrEmpty(ei.TimeIn_1_Found) && !string.IsNullOrEmpty(ei.TimeIn_3_Found) && !string.IsNullOrEmpty(ei.TimeIn_5_Found))
+                                {
+                                    ei.TimeInFinal = ei.TimeIn_5;
+                                }
+                                else if (string.IsNullOrEmpty(ei.TimeIn_1_Found) && !string.IsNullOrEmpty(ei.TimeIn_3_Found) && string.IsNullOrEmpty(ei.TimeIn_5_Found))
+                                {
+                                    ei.TimeInFinal = ei.TimeIn_3;
+                                }
+                                else if (string.IsNullOrEmpty(ei.TimeIn_1_Found) && string.IsNullOrEmpty(ei.TimeIn_3_Found) && !string.IsNullOrEmpty(ei.TimeIn_5_Found))
+                                {
+                                    ei.TimeInFinal = ei.TimeIn_5;
+                                }else if(string.IsNullOrEmpty(ei.TimeIn_1_Found) && string.IsNullOrEmpty(ei.TimeIn_3_Found) && string.IsNullOrEmpty(ei.TimeIn_5_Found))
+                                {
+                                    ei.TimeInFinal = helper.GetTimeConvert("00:00:00");
+                                    ei.isAllRowBlank = true;
+                                }
+
+                                if (!string.IsNullOrEmpty(ei.TimeIn_2_Found) && string.IsNullOrEmpty(ei.TimeIn_4_Found) && string.IsNullOrEmpty(ei.TimeIn_6_Found))
+                                {
+                                    ei.TimeOutFinal = ei.TimeIn_2;
+                                }
+                                else if (!string.IsNullOrEmpty(ei.TimeIn_2_Found) && !string.IsNullOrEmpty(ei.TimeIn_4_Found) && string.IsNullOrEmpty(ei.TimeIn_6_Found))
+                                {
+                                    ei.TimeOutFinal = ei.TimeIn_4;
+                                }
+                                else if (!string.IsNullOrEmpty(ei.TimeIn_2_Found) && !string.IsNullOrEmpty(ei.TimeIn_4_Found) && !string.IsNullOrEmpty(ei.TimeIn_6_Found))
+                                {
+                                    ei.TimeOutFinal = ei.TimeIn_6;
+                                }
+                                else if (string.IsNullOrEmpty(ei.TimeIn_2_Found) && !string.IsNullOrEmpty(ei.TimeIn_4_Found) && string.IsNullOrEmpty(ei.TimeIn_6_Found))
+                                {
+                                    ei.TimeOutFinal = ei.TimeIn_4;
+                                }
+                                else if (string.IsNullOrEmpty(ei.TimeIn_2_Found) && string.IsNullOrEmpty(ei.TimeIn_4_Found) && !string.IsNullOrEmpty(ei.TimeIn_6_Found))
+                                {
+                                    ei.TimeOutFinal = ei.TimeIn_6;
+                                }
+                                else if (string.IsNullOrEmpty(ei.TimeIn_1_Found) && string.IsNullOrEmpty(ei.TimeIn_3_Found) && string.IsNullOrEmpty(ei.TimeIn_5_Found) &&
+                                    string.IsNullOrEmpty(ei.TimeIn_1_Found) && string.IsNullOrEmpty(ei.TimeIn_3_Found) && string.IsNullOrEmpty(ei.TimeIn_5_Found))
+                                {
+                                    ei.TimeInFinal = helper.GetTimeConvert("00:00:00");
+                                    ei.TimeOutFinal = helper.GetTimeConvert("00:00:00");
+                                    ei.isAllRowBlank = true;
+                                }
+
                                 Ei.Add(ei);
                                 ei = new ExcelInfo();
                             }
@@ -355,5 +582,6 @@ namespace PayrollSystem.Functions
             }
             return dtTotalWorkHours;
         }
+       
     }
 }

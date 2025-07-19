@@ -232,8 +232,7 @@ namespace PayrollSystem.Database
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message.ToString(), "Payroll System : Database Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Error: " + ex.Message.ToString(), "Payroll System : Database Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);                
             }
             return dt;
         }
