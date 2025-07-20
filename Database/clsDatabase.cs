@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -254,12 +255,39 @@ namespace PayrollSystem.Database
                 result = cmd.ExecuteNonQuery();                
             }
             catch(Exception ex)
-            {
+            {                
                 MessageBox.Show("Error: " + ex.Message, "Payroll System : Error in Inserting Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             con.Close();
             return result;
         }
+
+        public int insertRecordTableNoPrompt(string Query,ref string ErrorMessage)
+        {
+            int result = 0;
+            string ConnString = setConnectionString(DatabaseName).ToString();
+            var con = new OleDbConnection(ConnString);
+            try
+            {
+                if (!checkDatabaseExists())
+                {
+                    return result;
+                }
+                var cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = Query;
+                con.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error: " + ex.Message, "Payroll System : Error in Inserting Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessage = ex.Message;
+            }
+            con.Close();
+            return result;
+        }
+
         public int deleteRecordTable(string Query)
         {
             int result = 0;

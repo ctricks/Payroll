@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,20 @@ namespace PayrollSystem.Attendance
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
     }
+    public class WorkLogsInfo
+    {
+        public string EmpID_Date { get; set; }
+        public string EmpID { get; set; }
+        public DateTime WorkingDate { get; set; }
+        public TimeSpan TimeIn { get; set; }
+        public TimeSpan TimeOut { get; set; }
+        public TimeSpan TotalWorkingHours { get; set; }
+        public TimeSpan TotalLateHours { get; set; }
+        public TimeSpan TotalUndertimeHours { get; set; }
+        public string ProcessBy { get; set; }
+        public string Notes { get; set; }
+    }
+
     public class ExcelInfo
     { 
         public int BiometricID { get; set; }

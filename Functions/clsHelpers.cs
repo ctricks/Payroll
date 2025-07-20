@@ -109,6 +109,24 @@ namespace PayrollSystem.Functions
             }
             return dateTime;
         }
+        public TimeSpan getTime(string Value)
+        {
+            TimeSpan resTime = new TimeSpan(0, 0, 0);
+            try
+            {
+                string format = "M/d/yyyy";
+                if (!string.IsNullOrEmpty(Value))
+                {
+                    DateTime dateTime = DateTime.ParseExact(Value, format, CultureInfo.InvariantCulture);
+                    resTime = TimeSpan.Parse(Value);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resTime;
+        }
         public DateTime GetTimeConvert(string Value)
         {
             DateTime dateTime = new DateTime(1901, 01, 01, 0, 0, 0);

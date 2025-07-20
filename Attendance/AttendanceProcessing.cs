@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml.Style;
+using PayrollSystem.Database;
 using PayrollSystem.Functions;
 using System;
 using System.Collections.Generic;
@@ -190,6 +191,8 @@ namespace PayrollSystem.Attendance
             dtEmpAtt.Columns.Add("Work_Hours");
             dtEmpAtt.Columns.Add("Late_Hours");
             dtEmpAtt.Columns.Add("Undertime_Hours");
+            dtEmpAtt.Columns.Add("Processed");
+            dtEmpAtt.Columns.Add("Notes");
 
             dgAttendance.DataSource = dtEmpAtt;
             ProcessPayroll();
@@ -260,6 +263,8 @@ namespace PayrollSystem.Attendance
                         dtEmpAtt.Columns.Add("Work_Hours");
                         dtEmpAtt.Columns.Add("Late_Hours");
                         dtEmpAtt.Columns.Add("Undertime_Hours");
+                        dtEmpAtt.Columns.Add("Processed");
+                        dtEmpAtt.Columns.Add("Notes");
 
                         foreach (ExcelInfo excelInfo in xinfo)
                         {                            
@@ -345,10 +350,269 @@ namespace PayrollSystem.Attendance
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
+            lb_logs.Items.Clear();
+            bgW_InsertWL.RunWorkerAsync();
+        }
+        private void LogtoDTR()
+        {
+            string MessageListBox = string.Empty;
+
+            string ExcelFilename = listView1.SelectedItems[0].Text;
+            string Approver = tb_Approver.Text;
+            string Status = (radioButton1.Checked ? radioButton1.Text : radioButton2.Text);
+            string EmpID = tbEmpID.Text;
+            string Notes = tbNotes.Text;
+            
+            MessageListBox = "Filename : " + ExcelFilename;
+            listboxLogs(MessageListBox);
+            MessageListBox = "Approver : " + Approver;
+            listboxLogs(MessageListBox);
+            MessageListBox = "Status : " + Status;
+            listboxLogs(MessageListBox);
+            MessageListBox = "Employee ID : " + EmpID;
+            listboxLogs(MessageListBox);
+
+            string Query = "Insert into tblPSD_DoneDTR (Emp_FN,Emp_ID,ExcelFileName,LastDateSaved,ProcessBy,Status,Notes) values (" +
+                           "'" + EmpID + "_" + ExcelFilename + "'," +
+                           "'" + EmpID + "',"+
+                           "'" + ExcelFilename + "'," +
+                           "'" + DateTime.Now.ToString() + "'," +
+                           "'" + Approver + "'," +
+                           "'" + Status + "'," +
+                           "'" + Notes + "'" +
+                           ")";
+            clsDatabase cdb = new clsDatabase();
+
+            string UpdateQuery = "Update tblPSD_DoneDTR " +
+                           "set Emp_ID = '" + EmpID + "'," +
+                           "ExcelFileName = '" + ExcelFilename + "'," +                           
+                           "LastDateModified = '" +DateTime.Now.ToString() + "'," +
+                           "ProcessBy = '" + Approver + "'," +
+                           "Status = '" + Status + "'," +
+                           "Notes = '" + Notes + "'," +
+                           "where Emp_FN = '" + EmpID + "_" + ExcelFilename + "'";
+
+            string CheckRecords = "Select * from tblPSD_DoneDTR where EMP_FN = '" + EmpID + "_" + ExcelFilename + "'";
+            string ErrorMessage = string.Empty;
+
+            if (cdb.getRecords(CheckRecords).Rows.Count == 1)
+            {
+                MessageListBox = "Records Found: " + EmpID + "_" + ExcelFilename;
+                listboxLogs(MessageListBox);
+                MessageListBox = "Update DTRLogs: " + EmpID;
+                listboxLogs(MessageListBox);
+                
+                if (cdb.insertRecordTableNoPrompt(UpdateQuery,ref ErrorMessage) == 1)
+                {
+                    MessageListBox = "Saved DTRLogs: " + EmpID;
+                    listboxLogs(MessageListBox);
+                }
+                else
+                {
+                    MessageListBox = "Unabled to Save...Please checked : " + EmpID + "_" + ExcelFilename;
+                    listboxLogs(MessageListBox);
+                }
+
+            }else
+            {
+                string ErrMsg = string.Empty;
+                if (cdb.insertRecordTableNoPrompt(Query,ref ErrMsg) == 1)
+                {
+                    MessageListBox = "Saved DTRLogs: " + EmpID;
+                    listboxLogs(MessageListBox);
+                }
+                else
+                {
+                    MessageListBox = "Unabled to Save...Please checked : " + EmpID + "_" + ExcelFilename;
+                    listboxLogs(MessageListBox);
+                    MessageListBox = "Error Message : " + ErrMsg;
+                    listboxLogs(MessageListBox);
+                }
+            }
+        }
+        private bool InsertWorkingLogs(WorkLogsInfo wli,ref string ReasonCode)
+        {
+            bool result = false;
+            string MessageListBox = string.Empty;
+            try
+            {
+                
+                string ProcessStatus = "Approved";
+                
+                ProcessStatus = radioButton1.Checked ? ProcessStatus : "Rejected";
+                                
+                string WorkingDate = wli.WorkingDate.ToString("MM-dd-yyyy ddd");
+                MessageListBox = "Processing : " + WorkingDate;
+                listboxLogs(MessageListBox);
+
+                //MessageListBox = "Status : " + ProcessStatus;
+                //listboxLogs(MessageListBox);
+
+                string Query = "Insert into tblPSD_WorkLogs([EmpID_Date], [EmpID], [WorkingDate], [TimeIN], [TimeOut], [WorkingHours], [LateHours], [UnderTimeHours], [ProcessBy], [Status], [Notes]) " +
+                               "values(" +
+                               "'" + wli.EmpID_Date + "'," +
+                               "'" + wli.EmpID + "'," +
+                               "'" + wli.WorkingDate.ToString("MM-dd-yyyy") + "'," +
+                               "'" + wli.TimeIn.ToString() + "'," +
+                               "'" + wli.TimeOut.ToString() + "'," +
+                               "'" + wli.TotalWorkingHours.ToString() + "'," +
+                               "'" + wli.TotalLateHours.ToString() + "'," +
+                               "'" + wli.TotalUndertimeHours.ToString() + "'," +
+                               "'" + wli.ProcessBy + "'," +
+                               "'" + ProcessStatus + "'," +
+                               "'" + wli.Notes + "'" +
+                               ")";
+
+                string QueryUpdate = "Update tblPSD_WorkLogs " +
+                               "set  " +
+                               "[EmpID]= " + "'" + wli.EmpID + "'," +
+                               "[WorkingDate]= " + "'" + wli.WorkingDate.ToString("MM-dd-yyyy") + "'," +
+                               "[TimeIN]= " + "'" + wli.TimeIn.ToString() + "'," +
+                               "[TimeOut]= " + "'" + wli.TimeOut.ToString() + "'," +
+                               "[WorkingHours]= " + "'" + wli.TotalWorkingHours.ToString() + "'," +
+                               "[LateHours]= " + "'" + wli.TotalLateHours.ToString() + "'," +
+                               "[UnderTimeHours]= " + "'" + wli.TotalUndertimeHours.ToString() + "'," +
+                               "[ProcessBy]= " + "'" + wli.ProcessBy + "'," +
+                               "[Status]= " + "'" + ProcessStatus + "'," +
+                               "[Notes] = " + "'" + wli.Notes + "'" +
+                               "where " +
+                               "[EmpID_Date] = '" + wli.EmpID_Date + "'";
+                               
+                clsDatabase cdb = new clsDatabase();
+
+                string SelectQuery = "Select * from tblPSD_WorkLogs where EmpID_Date = '" + wli.EmpID_Date +"'";
+
+                if (cdb.getRecords(SelectQuery).Rows.Count == 1)
+                {
+                    MessageListBox = "Record Exists...";
+                    listboxLogs(MessageListBox);
+                    MessageListBox = "Record Overwrite: " + wli.EmpID_Date;
+                    listboxLogs(MessageListBox);
+                    string ErrorMsg = string.Empty;
+                    if (cdb.insertRecordTableNoPrompt(QueryUpdate,ref ErrorMsg) == 1)
+                    {
+                        MessageListBox = "Saved...";
+                        listboxLogs(MessageListBox);
+                        result = true;
+                    }
+                    else
+                    {
+                        MessageListBox = "Unabled to Save...Please checked : " + wli.EmpID_Date;
+                        listboxLogs(MessageListBox);
+                        MessageListBox = "Error : " + ErrorMsg;
+                        listboxLogs(MessageListBox);
+                    }
+                }
+                else
+                {
+                    string ErrorMsg = string.Empty;
+                    if (cdb.insertRecordTableNoPrompt(Query,ref ErrorMsg) == 1)
+                    {
+                        MessageListBox = "Saved...";
+                        listboxLogs(MessageListBox);
+                        result = true;
+                    }
+                    else
+                    {
+                        MessageListBox = "Unabled to Save...Please checked : " + wli.EmpID_Date;
+                        listboxLogs(MessageListBox);
+                        MessageListBox = "Error : " + ErrorMsg;
+                        listboxLogs(MessageListBox);
+                    }
+                }
+                ReasonCode = MessageListBox;
+            }
+            catch (Exception ex)
+            {
+                MessageListBox = "Error : " + ex.Message.ToString();
+                ReasonCode = MessageListBox;
+                listboxLogs(MessageListBox);
+            }
+            return result;
+        }
+
+        private void listboxLogs(string Message)
+        {
+            lb_logs.Items.Insert(0,DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss") + "\t" + Message);
+        }
+
+        private void bgW_InsertWL_DoWork(object sender, DoWorkEventArgs e)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+
             if (string.IsNullOrEmpty(tbEmpID.Text))
             {
                 MessageBox.Show("Error: Cannot process the payroll. Please check your entries.", "Missing Employee ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            if (dgAttendance.Rows.Count == 0)
+            {
+                MessageBox.Show("Error: Cannot process the payroll. Please check your entries.", "No logs to saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string MessageListBox = string.Empty;
+            MessageListBox = "Employee : " + tbEmpID.Text;
+            listboxLogs(MessageListBox);
+            MessageListBox = "Status : " + (radioButton1.Checked ? radioButton1.Text : radioButton2.Text);
+            listboxLogs(MessageListBox);
+
+            foreach (DataGridViewRow dr in dgAttendance.Rows)
+            {
+                WorkLogsInfo workLogsInfo = new WorkLogsInfo();
+                DateTime dateTime = helpers.getDate(dr.Cells["Date"].Value.ToString());
+                DateTime dateTimeIn = helpers.getDate(dr.Cells["Final In"].Value.ToString());
+                DateTime dateTimeOut = helpers.getDate(dr.Cells["Final Out"].Value.ToString());
+                DateTime dateTimeWS = helpers.getDate(dr.Cells["Work_Hours"].Value.ToString());
+                DateTime dateTimeLH = helpers.getDate(dr.Cells["Late_Hours"].Value.ToString());
+                DateTime dateTimeUH = helpers.getDate(dr.Cells["Undertime_Hours"].Value.ToString());
+
+                workLogsInfo.EmpID = tbEmpID.Text;
+                workLogsInfo.EmpID_Date = workLogsInfo.EmpID + "_" + dateTime.ToString("MMddyyyy");
+                workLogsInfo.WorkingDate = dateTime;
+
+                workLogsInfo.TotalWorkingHours = helpers.getTime(dateTimeWS.ToString("HH:mm"));
+
+                if (dateTimeWS.ToString("HH:mm:ss") != "00:00:00")
+                {
+                    workLogsInfo.TimeIn = helpers.getTime(dateTimeIn.ToString("HH:mm"));
+                    workLogsInfo.TimeOut = helpers.getTime(dateTimeIn.ToString("HH:mm"));
+                    workLogsInfo.TotalLateHours = helpers.getTime(dateTimeLH.ToString("HH:mm"));
+                    workLogsInfo.TotalUndertimeHours = helpers.getTime(dateTimeUH.ToString("HH:mm"));
+                }
+
+                workLogsInfo.ProcessBy = tb_Approver.Text;
+                workLogsInfo.Notes = tbNotes.Text;
+
+                string ReasonCode = string.Empty;
+                dr.Cells["Processed"].Value = InsertWorkingLogs(workLogsInfo, ref ReasonCode) ? "Yes":"No";
+                dr.Cells["Notes"].Value = ReasonCode;
+                Thread.Sleep(500);
+            }
+            MessageListBox = "Process Completed...";
+            listboxLogs(MessageListBox);
+
+            MessageListBox = "Log to Done DTR...";
+            listboxLogs(MessageListBox);
+            LogtoDTR();
+            
+        }
+
+        private void bgW_InsertWL_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Done Processing...");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string ItemlistLog = string.Empty;
+            if (lb_logs.Items.Count > 0)
+            {
+                foreach(string strLogs in lb_logs.Items)
+                {
+                    ItemlistLog += strLogs + Environment.NewLine;
+                }
+                Clipboard.SetText(ItemlistLog);
+                MessageBox.Show("Copied");
             }
         }
     }

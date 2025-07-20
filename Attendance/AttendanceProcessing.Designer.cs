@@ -38,6 +38,21 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblProcess = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnProcess = new System.Windows.Forms.Button();
+            this.cbUploadOnline = new System.Windows.Forms.CheckBox();
+            this.tb_Approver = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbNotes = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.tb_TUH = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tb_TTH = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
+            this.tb_THW = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tbTimeOut = new System.Windows.Forms.TextBox();
             this.tbTimeIn = new System.Windows.Forms.TextBox();
             this.tbWorkingShift = new System.Windows.Forms.TextBox();
@@ -58,29 +73,19 @@
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tb_THW = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tb_TTH = new System.Windows.Forms.TextBox();
-            this.label = new System.Windows.Forms.Label();
-            this.tb_TUH = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbNotes = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tb_Approver = new System.Windows.Forms.TextBox();
-            this.cbUploadOnline = new System.Windows.Forms.CheckBox();
-            this.btnProcess = new System.Windows.Forms.Button();
+            this.bgW_InsertWL = new System.ComponentModel.BackgroundWorker();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lb_logs = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAttendance)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmpList)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -96,7 +101,7 @@
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1578, 830);
+            this.groupBox1.Size = new System.Drawing.Size(1750, 830);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -119,6 +124,7 @@
             this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Download Attendance Excel Template";
+            this.linkLabel1.Visible = false;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // btnBrwsePD
@@ -158,11 +164,12 @@
             this.tabControl1.Location = new System.Drawing.Point(6, 35);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1566, 789);
+            this.tabControl1.Size = new System.Drawing.Size(1738, 789);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.lblProcess);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -170,7 +177,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1558, 763);
+            this.tabPage1.Size = new System.Drawing.Size(1730, 763);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Processing";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -206,10 +213,154 @@
             this.groupBox3.Controls.Add(this.dgAttendance);
             this.groupBox3.Location = new System.Drawing.Point(437, 35);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1118, 536);
+            this.groupBox3.Size = new System.Drawing.Size(1287, 536);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Records";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnProcess);
+            this.groupBox4.Controls.Add(this.cbUploadOnline);
+            this.groupBox4.Controls.Add(this.tb_Approver);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.tbNotes);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.radioButton2);
+            this.groupBox4.Controls.Add(this.radioButton1);
+            this.groupBox4.Location = new System.Drawing.Point(811, 378);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(468, 144);
+            this.groupBox4.TabIndex = 17;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Approval";
+            // 
+            // btnProcess
+            // 
+            this.btnProcess.Location = new System.Drawing.Point(380, 110);
+            this.btnProcess.Name = "btnProcess";
+            this.btnProcess.Size = new System.Drawing.Size(82, 23);
+            this.btnProcess.TabIndex = 7;
+            this.btnProcess.Text = "Process";
+            this.btnProcess.UseVisualStyleBackColor = true;
+            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
+            // 
+            // cbUploadOnline
+            // 
+            this.cbUploadOnline.AutoSize = true;
+            this.cbUploadOnline.Location = new System.Drawing.Point(57, 107);
+            this.cbUploadOnline.Name = "cbUploadOnline";
+            this.cbUploadOnline.Size = new System.Drawing.Size(93, 17);
+            this.cbUploadOnline.TabIndex = 6;
+            this.cbUploadOnline.Text = "Upload Online";
+            this.cbUploadOnline.UseVisualStyleBackColor = true;
+            // 
+            // tb_Approver
+            // 
+            this.tb_Approver.Location = new System.Drawing.Point(247, 15);
+            this.tb_Approver.Name = "tb_Approver";
+            this.tb_Approver.ReadOnly = true;
+            this.tb_Approver.Size = new System.Drawing.Size(154, 20);
+            this.tb_Approver.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(219, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(22, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "By:";
+            // 
+            // tbNotes
+            // 
+            this.tbNotes.Location = new System.Drawing.Point(55, 41);
+            this.tbNotes.Multiline = true;
+            this.tbNotes.Name = "tbNotes";
+            this.tbNotes.Size = new System.Drawing.Size(407, 63);
+            this.tbNotes.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Notes:";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(145, 18);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(56, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = "Reject";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(56, 18);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(71, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Approved";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // tb_TUH
+            // 
+            this.tb_TUH.Location = new System.Drawing.Point(514, 432);
+            this.tb_TUH.Name = "tb_TUH";
+            this.tb_TUH.ReadOnly = true;
+            this.tb_TUH.Size = new System.Drawing.Size(100, 20);
+            this.tb_TUH.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(396, 438);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Total Undertime Hours:";
+            // 
+            // tb_TTH
+            // 
+            this.tb_TTH.Location = new System.Drawing.Point(514, 403);
+            this.tb_TTH.Name = "tb_TTH";
+            this.tb_TTH.ReadOnly = true;
+            this.tb_TTH.Size = new System.Drawing.Size(100, 20);
+            this.tb_TTH.TabIndex = 14;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(396, 409);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(114, 13);
+            this.label.TabIndex = 13;
+            this.label.Text = "Total Tardiness Hours:";
+            // 
+            // tb_THW
+            // 
+            this.tb_THW.Location = new System.Drawing.Point(513, 377);
+            this.tb_THW.Name = "tb_THW";
+            this.tb_THW.ReadOnly = true;
+            this.tb_THW.Size = new System.Drawing.Size(100, 20);
+            this.tb_THW.TabIndex = 12;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(396, 383);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Total Working Hours:";
             // 
             // tbTimeOut
             // 
@@ -308,7 +459,7 @@
             this.dgAttendance.Location = new System.Drawing.Point(6, 19);
             this.dgAttendance.Name = "dgAttendance";
             this.dgAttendance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgAttendance.Size = new System.Drawing.Size(1109, 352);
+            this.dgAttendance.Size = new System.Drawing.Size(1275, 352);
             this.dgAttendance.TabIndex = 0;
             // 
             // groupBox2
@@ -396,160 +547,50 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1106, 536);
+            this.tabPage2.Size = new System.Drawing.Size(1558, 763);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Result";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tb_THW
+            // bgW_InsertWL
             // 
-            this.tb_THW.Location = new System.Drawing.Point(513, 377);
-            this.tb_THW.Name = "tb_THW";
-            this.tb_THW.ReadOnly = true;
-            this.tb_THW.Size = new System.Drawing.Size(100, 20);
-            this.tb_THW.TabIndex = 12;
+            this.bgW_InsertWL.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgW_InsertWL_DoWork);
+            this.bgW_InsertWL.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgW_InsertWL_RunWorkerCompleted);
             // 
-            // label8
+            // groupBox5
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(396, 383);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Total Working Hours:";
+            this.groupBox5.Controls.Add(this.button2);
+            this.groupBox5.Controls.Add(this.lb_logs);
+            this.groupBox5.Location = new System.Drawing.Point(437, 577);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1287, 174);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Process Logs";
             // 
-            // tb_TTH
+            // lb_logs
             // 
-            this.tb_TTH.Location = new System.Drawing.Point(514, 403);
-            this.tb_TTH.Name = "tb_TTH";
-            this.tb_TTH.ReadOnly = true;
-            this.tb_TTH.Size = new System.Drawing.Size(100, 20);
-            this.tb_TTH.TabIndex = 14;
+            this.lb_logs.FormattingEnabled = true;
+            this.lb_logs.Location = new System.Drawing.Point(6, 45);
+            this.lb_logs.Name = "lb_logs";
+            this.lb_logs.Size = new System.Drawing.Size(1275, 121);
+            this.lb_logs.TabIndex = 0;
             // 
-            // label
+            // button2
             // 
-            this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(396, 409);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(114, 13);
-            this.label.TabIndex = 13;
-            this.label.Text = "Total Tardiness Hours:";
-            // 
-            // tb_TUH
-            // 
-            this.tb_TUH.Location = new System.Drawing.Point(514, 432);
-            this.tb_TUH.Name = "tb_TUH";
-            this.tb_TUH.ReadOnly = true;
-            this.tb_TUH.Size = new System.Drawing.Size(100, 20);
-            this.tb_TUH.TabIndex = 16;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(396, 438);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 13);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Total Undertime Hours:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnProcess);
-            this.groupBox4.Controls.Add(this.cbUploadOnline);
-            this.groupBox4.Controls.Add(this.tb_Approver);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.tbNotes);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.radioButton2);
-            this.groupBox4.Controls.Add(this.radioButton1);
-            this.groupBox4.Location = new System.Drawing.Point(644, 378);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(468, 144);
-            this.groupBox4.TabIndex = 17;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Approval";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(56, 18);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(71, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Approved";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(145, 18);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(56, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Reject";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Notes:";
-            // 
-            // tbNotes
-            // 
-            this.tbNotes.Location = new System.Drawing.Point(55, 41);
-            this.tbNotes.Multiline = true;
-            this.tbNotes.Name = "tbNotes";
-            this.tbNotes.Size = new System.Drawing.Size(407, 63);
-            this.tbNotes.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(219, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(22, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "By:";
-            // 
-            // tb_Approver
-            // 
-            this.tb_Approver.Location = new System.Drawing.Point(247, 15);
-            this.tb_Approver.Name = "tb_Approver";
-            this.tb_Approver.ReadOnly = true;
-            this.tb_Approver.Size = new System.Drawing.Size(154, 20);
-            this.tb_Approver.TabIndex = 5;
-            // 
-            // cbUploadOnline
-            // 
-            this.cbUploadOnline.AutoSize = true;
-            this.cbUploadOnline.Location = new System.Drawing.Point(57, 107);
-            this.cbUploadOnline.Name = "cbUploadOnline";
-            this.cbUploadOnline.Size = new System.Drawing.Size(93, 17);
-            this.cbUploadOnline.TabIndex = 6;
-            this.cbUploadOnline.Text = "Upload Online";
-            this.cbUploadOnline.UseVisualStyleBackColor = true;
-            // 
-            // btnProcess
-            // 
-            this.btnProcess.Location = new System.Drawing.Point(380, 110);
-            this.btnProcess.Name = "btnProcess";
-            this.btnProcess.Size = new System.Drawing.Size(82, 23);
-            this.btnProcess.TabIndex = 7;
-            this.btnProcess.Text = "Process";
-            this.btnProcess.UseVisualStyleBackColor = true;
-            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
+            this.button2.Location = new System.Drawing.Point(1206, 16);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Copy Logs";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AttendanceProcessing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1602, 864);
+            this.ClientSize = new System.Drawing.Size(1774, 864);
             this.Controls.Add(this.groupBox1);
             this.Name = "AttendanceProcessing";
             this.Text = "Attendance Processing";
@@ -561,12 +602,13 @@
             this.tabPage1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAttendance)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmpList)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -618,5 +660,9 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.CheckBox cbUploadOnline;
+        private System.ComponentModel.BackgroundWorker bgW_InsertWL;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox lb_logs;
     }
 }
