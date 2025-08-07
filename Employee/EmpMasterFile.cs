@@ -16,6 +16,7 @@ namespace PayrollSystem.Employee
     public partial class EmpMasterFile : Form
     {
         bool isEdit = false;
+        public bool isMsAccess;
 
         DataTable dtEmployeeRecords = new DataTable();
 
@@ -117,8 +118,14 @@ namespace PayrollSystem.Employee
 
         private void EmpMasterFile_Load(object sender, EventArgs e)
         {
-            InitializedEmpMaster();
-            showAll();            
+            if (isMsAccess)
+            {
+                InitializedEmpMaster();
+                showAll();            
+            }else
+            {
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

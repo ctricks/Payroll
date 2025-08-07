@@ -1,25 +1,38 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PayrollSystem.Database
 {
     public class clsDatabase
     {
         IniFile MyIni = new IniFile("Settings.ini");
+        public bool MsAccess;
 
-        string ConnectionString;
+        public string myConnectionString;
         string DatabasePath;
         string DatabaseName;
 
+        string MysqlServer;
+        string MysqlUsername;
+        string MysqlPassword;
+        string MysqlPort;
+        string MysqlDatabase;
+
+        
         string setDatabaseName()
         {
             string sDatabaseName = MyIni.Read("Filename", "DatabaseSettings");
@@ -35,11 +48,38 @@ namespace PayrollSystem.Database
             }
             return sDatabasePath;
         }
-
-        public string setConnectionString(string DatabaseName)
+        
+        public bool testConnectionString(string ConnectionString)
+        {
+            bool result = false;
+            try
+            {
+                ConnectionString = myConnectionString;
+                using (MySqlConnection conn = new MySqlConnection(ConnectionString))
+                {                    
+                    conn.Open();
+                    result = true;
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message.ToString(), "Mysql Test DB Connection failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                result = false; 
+            }
+            return result;
+        }
+        public string setConnectionString(string DatabaseName = "")
         {
             DatabasePath = MyIni.Read("Directory", "DatabaseSettings");
             DatabaseName = MyIni.Read("Filename", "DatabaseSettings");
+            //For DB Server
+            MysqlServer = MyIni.Read("Servername", "DatabaseServer");
+            MysqlDatabase = MyIni.Read("Databasename", "DatabaseServer");
+            MysqlUsername = MyIni.Read("Username", "DatabaseServer");
+            MysqlPassword = MyIni.Read("Password", "DatabaseServer");
+            MysqlPort = MyIni.Read("Port", "DatabaseServer");
+
             string DatabaseFilePath = DatabasePath + "\\" + DatabaseName;
 
             if (!Directory.Exists(DatabasePath))
@@ -54,8 +94,18 @@ namespace PayrollSystem.Database
                 return "";
             }
 
+            string Connstring = string.Empty;
 
-            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + DatabaseFilePath + ";";
+            if (MsAccess)
+            {
+                Connstring = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + DatabaseFilePath + ";";
+            }
+            else
+            {
+                Connstring = "Server="+MysqlServer+";Database="+MysqlDatabase+";Uid="+MysqlUsername+";Pwd="+MysqlPassword+";Port="+MysqlPort+";";
+            }
+            myConnectionString = Connstring;
+            return Connstring;
         }
         public string setQueryBuilder(string sColumnName, string sTableName, string sCriteria)
         {
@@ -116,6 +166,27 @@ namespace PayrollSystem.Database
             {
             }
             return sResult;
+        }
+        public string setInsertQueryBuilderByColumnValue(string TableName, string[,] details)
+        {
+            string result = string.Empty;
+            try
+            {
+                string ColumnName = string.Empty;
+
+                for(int a = 0;a<=details.Length/2;a++)
+                {
+                    for (int b = 0; b <= 1; b++)
+                    {
+                        ColumnName += details[b,a].ToString() + ',';
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = "Error: " + ex.Message.ToString();
+            }
+            return result;
         }
         public string setInsertQueryBuilder(string TableName,DataTable dtBody)
         {
@@ -218,16 +289,31 @@ namespace PayrollSystem.Database
                 {
                     return dt;
                 }
-                string ConnString = setConnectionString(DatabaseName).ToString();  
-                using (OleDbConnection dataConnection = new OleDbConnection(ConnString))
+                string ConnString = myConnectionString; //setConnectionString(DatabaseName).ToString();  
+                //using (OleDbConnection dataConnection = new OleDbConnection(ConnString))
+                //{
+                //    using (OleDbCommand dataCommand = dataConnection.CreateCommand())
+                //    {
+                //        dataCommand.CommandText = Query;
+                //        dataConnection.Open();                                                
+                //        OleDbDataAdapter adapter = new OleDbDataAdapter();
+                //        adapter.SelectCommand = dataCommand;
+                //        adapter.Fill(dt);                        
+                //    }
+                //}
+                using(MySqlConnection conn = new MySqlConnection(ConnString))
                 {
-                    using (OleDbCommand dataCommand = dataConnection.CreateCommand())
+                    using(MySqlCommand cmd = new MySqlCommand(Query,conn))
                     {
-                        dataCommand.CommandText = Query;
-                        dataConnection.Open();                                                
-                        OleDbDataAdapter adapter = new OleDbDataAdapter();
-                        adapter.SelectCommand = dataCommand;
-                        adapter.Fill(dt);                        
+                        conn.Open();
+                        using(MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                        if(conn.State == ConnectionState.Open)
+                        {
+                            conn.Close();
+                        }
                     }
                 }
             }
@@ -311,6 +397,143 @@ namespace PayrollSystem.Database
             }
             con.Close();
             return result;
+        }
+        //Stored Procedure Starts Here
+        public int setHolidays(DateTime CalendarDate,string HolidayName, string HolidayType,int UserID, string Remarks)
+        {
+            int result = 0;
+            try
+            {
+                string MySQLConnectionString = setConnectionString();
+                using (MySqlConnection connection = new MySqlConnection(MySQLConnectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_setHolidays", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@CalendarDate", MySqlDbType.Date).Value = CalendarDate;
+                        command.Parameters.Add("@HolidayName", MySqlDbType.String).Value = HolidayName;
+                        command.Parameters.Add("@HolType", MySqlDbType.String).Value = HolidayType;
+                        command.Parameters.Add("@UserID", MySqlDbType.Int32).Value = UserID;
+                        command.Parameters.Add("@Remarks", MySqlDbType.String).Value = Remarks;
+                        connection.Open();
+                        result = command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+
+        public DataSet getDSFromSPSelect(string SPName)
+        {
+            DataSet dsFinal = new DataSet();
+            try
+            {
+                string MySQLConnectionString = setConnectionString();
+                using (MySqlConnection connection = new MySqlConnection(MySQLConnectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(SPName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        connection.Open();
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(command))
+                        {
+                            da.Fill(dsFinal);
+                        }                        
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString(), "Error executing SP: " + SPName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return dsFinal;
+        }
+        public DataSet getDSFromSPSelectHolidays(string SPName,int Year,int isDistinct)
+        {
+            DataSet dsFinal = new DataSet();
+            try
+            {
+                string MySQLConnectionString = setConnectionString();
+                using (MySqlConnection connection = new MySqlConnection(MySQLConnectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(SPName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@ForYear", MySqlDbType.Int32).Value = Year;
+                        command.Parameters.Add("@isDistinct", MySqlDbType.Int32).Value = isDistinct;
+
+                        connection.Open();
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(command))
+                        {
+                            da.Fill(dsFinal);
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString(), "Error executing SP: " + SPName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return dsFinal;
+        }
+
+
+        public void ExecuteSPLoginUsers(string SPName,string ConnectionString,string Username, string Password,out int RoleID,out int UserID)
+        {
+            RoleID = 0;UserID = 0;
+            int result = 0;
+            try
+            {
+                string MySQLConnectionString = ConnectionString;
+                using (MySqlConnection connection = new MySqlConnection(MySQLConnectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(SPName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add input parameters
+                        command.Parameters.AddWithValue("Username", Username);
+                        command.Parameters.AddWithValue("PasswordVal", Password);
+
+                        // Add output parameter for the return value
+                        MySqlParameter RoleId = new MySqlParameter("@RoleId", MySqlDbType.Int32);
+                        RoleId.Direction = ParameterDirection.Output;
+                        command.Parameters.Add(RoleId);
+
+                        MySqlParameter UserId = new MySqlParameter("@UserId", MySqlDbType.Int32);
+                        UserId.Direction = ParameterDirection.Output;
+                        command.Parameters.Add(UserId);
+
+                        connection.Open();
+                        command.ExecuteNonQuery(); // Execute the stored procedure
+
+                        // Retrieve the value from the output parameter
+                        if (RoleId.Value != DBNull.Value)
+                        {
+                            RoleID = Convert.ToInt32(RoleId.Value);
+                        }
+                        if (UserId.Value != DBNull.Value)
+                        {
+                            UserID = Convert.ToInt32(UserId.Value);
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message.ToString(), "Error executing SP: " + SPName,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                UserID = -1;
+            }            
         }
     }
 }

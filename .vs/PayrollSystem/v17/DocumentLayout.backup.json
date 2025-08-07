@@ -3,28 +3,48 @@
   "WorkspaceRootPath": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|h:\\backup payroll\\new system proposal\\payroll_desktop_git\\payroll\\attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\database\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:database\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|h:\\backup payroll\\new system proposal\\payroll_desktop_git\\payroll\\queries\\qusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:queries\\qusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|h:\\backup payroll\\new system proposal\\payroll_desktop_git\\payroll\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|h:\\backup payroll\\new system proposal\\payroll_desktop_git\\payroll\\settings.ini||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:settings.ini||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\payroll\\frmpayrollcoverage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:payroll\\frmpayrollcoverage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\payroll\\frmpayrollcoverage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:payroll\\frmpayrollcoverage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\holidays\\frmholidays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:holidays\\frmholidays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\holidays\\frmholidays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:holidays\\frmholidays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\functions\\clsholidayfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:functions\\clsholidayfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\functions\\clshelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:functions\\clshelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\functions\\clsattendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:functions\\clsattendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\attendance\\attendanceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:attendance\\attendanceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,40 +55,20 @@
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:attendance\\attendanceprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\settings\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:settings\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\settings.ini||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:settings.ini||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\settings\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:settings\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:employee\\empmasterfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\functions\\clsuserfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:functions\\clsuserfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\functions\\clsreferencetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:functions\\clsreferencetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{473BF09B-43F8-490C-AF5A-40322235A9B8}|PayrollSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,213 +78,214 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsDatabase.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Database\\clsDatabase.cs",
-              "RelativeDocumentMoniker": "Database\\clsDatabase.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Database\\clsDatabase.cs",
-              "RelativeToolTip": "Database\\clsDatabase.cs",
-              "ViewState": "AgIAAAEBAAAAAAAAAAAAwBsBAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T01:53:06.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AttendanceProcessing.cs [Design]",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceProcessing.cs",
-              "RelativeDocumentMoniker": "Attendance\\AttendanceProcessing.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceProcessing.cs [Design]",
-              "RelativeToolTip": "Attendance\\AttendanceProcessing.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T01:17:50.025Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IniFile.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\IniFile.cs",
-              "RelativeDocumentMoniker": "IniFile.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\IniFile.cs",
-              "RelativeToolTip": "IniFile.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAADUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T01:36:19.434Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AttendanceProcessing.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceProcessing.cs",
-              "RelativeDocumentMoniker": "Attendance\\AttendanceProcessing.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceProcessing.cs",
-              "RelativeToolTip": "Attendance\\AttendanceProcessing.cs",
-              "ViewState": "AgIAAIsBAAAAAAAAAAAUwKkBAAAMAAAAAAAAAA==",
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmLogin.cs",
+              "RelativeToolTip": "frmLogin.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAADwv4gAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T01:25:52.012Z",
+              "WhenOpened": "2025-08-02T08:03:48.725Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\MainForm.cs",
-              "RelativeDocumentMoniker": "MainForm.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\MainForm.cs",
-              "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAADwv2AAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T02:27:49.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "frmLogin.cs [Design]",
               "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmLogin.cs",
               "RelativeDocumentMoniker": "frmLogin.cs",
               "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmLogin.cs [Design]",
               "RelativeToolTip": "frmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T01:50:53.659Z"
+              "WhenOpened": "2025-08-07T16:55:33.422Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "frmLogin.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmLogin.cs",
-              "RelativeDocumentMoniker": "frmLogin.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\frmLogin.cs",
-              "RelativeToolTip": "frmLogin.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAqwEwAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "QUsers.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\QUERIES\\QUsers.cs",
+              "RelativeDocumentMoniker": "QUERIES\\QUsers.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\QUERIES\\QUsers.cs",
+              "RelativeToolTip": "QUERIES\\QUsers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T01:50:55.292Z"
+              "WhenOpened": "2025-08-07T15:12:01.443Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AttendanceInfo.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceInfo.cs",
-              "RelativeDocumentMoniker": "Attendance\\AttendanceInfo.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceInfo.cs",
-              "RelativeToolTip": "Attendance\\AttendanceInfo.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAkwCcAAAAAAAAAAAAAAA==",
+              "Title": "frmPayrollCoverage.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Payroll\\frmPayrollCoverage.cs",
+              "RelativeDocumentMoniker": "Payroll\\frmPayrollCoverage.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Payroll\\frmPayrollCoverage.cs",
+              "RelativeToolTip": "Payroll\\frmPayrollCoverage.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAmwCYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T17:06:21.713Z",
+              "WhenOpened": "2025-08-07T07:22:48.631Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "clsUserFunctions.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsUserFunctions.cs",
-              "RelativeDocumentMoniker": "Functions\\clsUserFunctions.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsUserFunctions.cs",
-              "RelativeToolTip": "Functions\\clsUserFunctions.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAcwBsAAAANAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "frmPayrollCoverage.cs [Design]",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Payroll\\frmPayrollCoverage.cs",
+              "RelativeDocumentMoniker": "Payroll\\frmPayrollCoverage.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Payroll\\frmPayrollCoverage.cs [Design]",
+              "RelativeToolTip": "Payroll\\frmPayrollCoverage.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T23:34:51.794Z"
+              "WhenOpened": "2025-08-07T07:22:44.128Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "clsHelpers.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsHelpers.cs",
-              "RelativeDocumentMoniker": "Functions\\clsHelpers.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsHelpers.cs",
-              "RelativeToolTip": "Functions\\clsHelpers.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAUwEgAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T01:42:13.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "clsAttendance.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsAttendance.cs",
-              "RelativeDocumentMoniker": "Functions\\clsAttendance.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsAttendance.cs",
-              "RelativeToolTip": "Functions\\clsAttendance.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAADwvysCAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T16:31:22.108Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "EmpMasterFile.cs",
               "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Employee\\EmpMasterFile.cs",
               "RelativeDocumentMoniker": "Employee\\EmpMasterFile.cs",
               "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Employee\\EmpMasterFile.cs",
               "RelativeToolTip": "Employee\\EmpMasterFile.cs",
-              "ViewState": "AgIAAGcBAAAAAAAAAAAowL8AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAADwv34AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T23:02:01.985Z"
+              "WhenOpened": "2025-08-02T23:21:08.765Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\MainForm.cs",
+              "RelativeToolTip": "MainForm.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAqwIIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T22:48:02.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "clsHelpers.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsHelpers.cs",
+              "RelativeDocumentMoniker": "Functions\\clsHelpers.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsHelpers.cs",
+              "RelativeToolTip": "Functions\\clsHelpers.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAkwJcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T08:05:19.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsDatabase.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Database\\clsDatabase.cs",
+              "RelativeDocumentMoniker": "Database\\clsDatabase.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Database\\clsDatabase.cs",
+              "RelativeToolTip": "Database\\clsDatabase.cs",
+              "ViewState": "AgIAADQBAAAAAAAAAADwv0QBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T08:05:19.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Settings.ini",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings.ini",
+              "RelativeDocumentMoniker": "Settings.ini",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings.ini",
+              "RelativeToolTip": "Settings.ini",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002768|",
+              "WhenOpened": "2025-08-02T07:56:23.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T02:27:48.217Z"
+              "WhenOpened": "2025-08-02T07:54:20.801Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Settings.ini",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings.ini",
-              "RelativeDocumentMoniker": "Settings.ini",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings.ini",
-              "RelativeToolTip": "Settings.ini",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002768|",
-              "WhenOpened": "2025-05-21T23:05:13.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Program.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "frmHolidays.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Holidays\\frmHolidays.cs",
+              "RelativeDocumentMoniker": "Holidays\\frmHolidays.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Holidays\\frmHolidays.cs",
+              "RelativeToolTip": "Holidays\\frmHolidays.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAADwv2kAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T02:27:46.363Z"
+              "WhenOpened": "2025-08-05T22:41:58.823Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EmpMasterFile.cs [Design]",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Employee\\EmpMasterFile.cs",
-              "RelativeDocumentMoniker": "Employee\\EmpMasterFile.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Employee\\EmpMasterFile.cs [Design]",
-              "RelativeToolTip": "Employee\\EmpMasterFile.cs [Design]",
+              "DocumentIndex": 9,
+              "Title": "clsHolidayFunctions.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsHolidayFunctions.cs",
+              "RelativeDocumentMoniker": "Functions\\clsHolidayFunctions.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsHolidayFunctions.cs",
+              "RelativeToolTip": "Functions\\clsHolidayFunctions.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAiwDMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T23:01:07.247Z"
+              "WhenOpened": "2025-08-05T22:44:59.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmHolidays.cs [Design]",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Holidays\\frmHolidays.cs",
+              "RelativeDocumentMoniker": "Holidays\\frmHolidays.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Holidays\\frmHolidays.cs [Design]",
+              "RelativeToolTip": "Holidays\\frmHolidays.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T22:36:13.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AttendanceProcessing.cs [Design]",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceProcessing.cs",
+              "RelativeDocumentMoniker": "Attendance\\AttendanceProcessing.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Attendance\\AttendanceProcessing.cs [Design]",
+              "RelativeToolTip": "Attendance\\AttendanceProcessing.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T22:28:46.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FrmSettings.cs",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings\\FrmSettings.cs",
+              "RelativeDocumentMoniker": "Settings\\FrmSettings.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings\\FrmSettings.cs",
+              "RelativeToolTip": "Settings\\FrmSettings.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAawE0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T22:31:25.508Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "clsReferenceTable.cs",
-              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsReferenceTable.cs",
-              "RelativeDocumentMoniker": "Functions\\clsReferenceTable.cs",
-              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Functions\\clsReferenceTable.cs",
-              "RelativeToolTip": "Functions\\clsReferenceTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBcAAAAIAAAAAAAAAA==",
+              "Title": "FrmSettings.cs [Design]",
+              "DocumentMoniker": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings\\FrmSettings.cs",
+              "RelativeDocumentMoniker": "Settings\\FrmSettings.cs",
+              "ToolTip": "H:\\backUp Payroll\\NEW SYSTEM PROPOSAL\\PAYROLL_DESKTOP_GIT\\Payroll\\Settings\\FrmSettings.cs [Design]",
+              "RelativeToolTip": "Settings\\FrmSettings.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T14:33:25.868Z"
+              "WhenOpened": "2025-08-03T22:29:45.588Z"
             }
           ]
         }

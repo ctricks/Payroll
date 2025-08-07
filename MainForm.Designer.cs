@@ -37,11 +37,14 @@
             this.masterlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.payrollToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shiftScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.systemPreferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +54,7 @@
             this.fileToolStripMenuItem,
             this.employeeToolStripMenuItem,
             this.attendanceToolStripMenuItem,
+            this.payrollToolStripMenuItem,
             this.maintenanceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -117,9 +121,25 @@
             this.processingToolStripMenuItem.Text = "&Processing";
             this.processingToolStripMenuItem.Click += new System.EventHandler(this.processingToolStripMenuItem_Click);
             // 
+            // payrollToolStripMenuItem
+            // 
+            this.payrollToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.coverageToolStripMenuItem});
+            this.payrollToolStripMenuItem.Name = "payrollToolStripMenuItem";
+            this.payrollToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.payrollToolStripMenuItem.Text = "Payroll";
+            // 
+            // coverageToolStripMenuItem
+            // 
+            this.coverageToolStripMenuItem.Name = "coverageToolStripMenuItem";
+            this.coverageToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.coverageToolStripMenuItem.Text = "Coverage";
+            this.coverageToolStripMenuItem.Click += new System.EventHandler(this.coverageToolStripMenuItem_Click);
+            // 
             // maintenanceToolStripMenuItem
             // 
             this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.shiftScheduleToolStripMenuItem,
             this.toolStripSeparator2,
             this.systemPreferenceToolStripMenuItem});
@@ -130,16 +150,8 @@
             // shiftScheduleToolStripMenuItem
             // 
             this.shiftScheduleToolStripMenuItem.Name = "shiftScheduleToolStripMenuItem";
-            this.shiftScheduleToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.shiftScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.shiftScheduleToolStripMenuItem.Text = "&Shift Schedule";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 618);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1273, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripSeparator2
             // 
@@ -151,6 +163,22 @@
             this.systemPreferenceToolStripMenuItem.Name = "systemPreferenceToolStripMenuItem";
             this.systemPreferenceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.systemPreferenceToolStripMenuItem.Text = "System Preference";
+            this.systemPreferenceToolStripMenuItem.Click += new System.EventHandler(this.systemPreferenceToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 618);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1273, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Holiday Set-up";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -191,5 +219,8 @@
         private System.Windows.Forms.ToolStripMenuItem shiftScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem systemPreferenceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem payrollToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coverageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

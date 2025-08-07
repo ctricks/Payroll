@@ -1,4 +1,7 @@
 ﻿using PayrollSystem.Functions;
+using PayrollSystem.Holidays;
+using PayrollSystem.Payroll;
+using PayrollSystem.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +18,10 @@ namespace PayrollSystem
     public partial class MainForm : Form
     {
         IniFile MyIni = new IniFile("Settings.ini");
+        public bool isMSAccess;
         public int UserIDLogin;
         public string UserNameLogin;
+        public int RoleID;
         private void InitializedMainForm()
         {
             string MainBackground = MyIni.Read("MainBackground", "ApplicationSettings");
@@ -86,6 +91,7 @@ namespace PayrollSystem
         {
             Employee.EmpMasterFile empForm = new Employee.EmpMasterFile();             
             empForm.MdiParent = this;
+            empForm.isMsAccess = isMSAccess;
             empForm.Show();
         }
 
@@ -96,6 +102,34 @@ namespace PayrollSystem
             attendanceProcessing.intUserID = UserIDLogin;
             attendanceProcessing.UserName = UserNameLogin;
             attendanceProcessing.Show();
+        }
+
+        private void coverageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPayrollCoverage coverage = new frmPayrollCoverage();
+            coverage.Username= UserNameLogin;
+            coverage.Show();
+        }
+
+        private void systemPreferenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(!isMSAccess)
+            {
+                FrmSettings frmSettings = new FrmSettings();
+                frmSettings.MdiParent = this;
+                frmSettings.Show();
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (!isMSAccess)
+            {
+                frmHolidays frmHol = new frmHolidays();
+                frmHol.MdiParent = this;
+                frmHol.UserID = UserIDLogin;
+                frmHol.Show();
+            }
         }
     }
 }
