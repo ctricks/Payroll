@@ -135,6 +135,18 @@ namespace PayrollSystem.Functions
             }
             return Result;
         }
+        public double getDouble(string Value)
+        {
+            double retVal = 0.00;
+            try
+            {
+                retVal = double.Parse(Value);
+            }
+            catch (Exception ex)
+            {
+            }
+            return retVal;
+        }
         public DateTime getDate(string Value)
         {
             DateTime dateTime = new DateTime(1901, 01, 01, 0, 0, 0);
@@ -158,7 +170,7 @@ namespace PayrollSystem.Functions
                 string format = "M/d/yyyy";
                 if (!string.IsNullOrEmpty(Value))
                 {
-                    DateTime dateTime = DateTime.ParseExact(Value, format, CultureInfo.InvariantCulture);
+                    //DateTime dateTime = DateTime.ParseExact(Value, format, CultureInfo.InvariantCulture);
                     resTime = TimeSpan.Parse(Value);
                 }
             }

@@ -133,6 +133,7 @@
       <DependentUpon>EmpMasterFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions\clsAttendance.cs" />
+    <Compile Include="Functions\clsEmployeeRecords.cs" />
     <Compile Include="Functions\clsHelpers.cs" />
     <Compile Include="Functions\clsHolidayFunctions.cs" />
     <Compile Include="Functions\clsReferenceTable.cs" />
@@ -142,6 +143,15 @@
     </Compile>
     <Compile Include="Holidays\frmHolidays.Designer.cs">
       <DependentUpon>frmHolidays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportData\clsImportSQL.cs" />
+    <Compile Include="ImportData\clsProcessImport.cs" />
+    <Compile Include="ImportData\clsValidationChecks.cs" />
+    <Compile Include="ImportData\frmImportData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportData\frmImportData.Designer.cs">
+      <DependentUpon>frmImportData.cs</DependentUpon>
     </Compile>
     <Compile Include="IniFile.cs" />
     <Compile Include="Database\clsDatabase.cs" />
@@ -183,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Holidays\frmHolidays.resx">
       <DependentUpon>frmHolidays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportData\frmImportData.resx">
+      <DependentUpon>frmImportData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -226,6 +239,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Template\HolidaysTemplate.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Template\EmployeeRecordsTemplate.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

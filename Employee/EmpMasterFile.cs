@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,79 +29,85 @@ namespace PayrollSystem.Employee
         clsReferenceTable cref = new clsReferenceTable();
         clsHelpers chelp = new clsHelpers();
         clsDatabase cDB = new clsDatabase();
+        clsEmployeeRecords emprec = new clsEmployeeRecords();
 
         private void InitializedEmpMaster()
         {
-            Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
-            ShiftSchedule = cref.getDataTableRefence("tblPSD_ShiftSchedule", "ID,Label,StartTime,EndTime");
+            if (isMsAccess)
+            {
+                Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
+                ShiftSchedule = cref.getDataTableRefence("tblPSD_ShiftSchedule", "ID,Label,StartTime,EndTime");
 
-            DataRow drDep = Department.NewRow();
-            drDep["ID"] = 0;
-            drDep["DepartmentCode"] = string.Empty;
-            Department.Rows.InsertAt(drDep, 0);
+                DataRow drDep = Department.NewRow();
+                drDep["ID"] = 0;
+                drDep["DepartmentCode"] = string.Empty;
+                Department.Rows.InsertAt(drDep, 0);
 
-            cmbDepartment.DataSource = Department;
-            cmbDepartment.DisplayMember = "DepartmentCode";
-            cmbDepartment.ValueMember = "ID";
-            cmbDepartment.SelectedIndex = 0;
+                cmbDepartment.DataSource = Department;
+                cmbDepartment.DisplayMember = "DepartmentCode";
+                cmbDepartment.ValueMember = "ID";
+                cmbDepartment.SelectedIndex = 0;
 
-            DataRow drSW = ShiftSchedule.NewRow();
-            drSW["ID"] = 0;
-            drSW["Label"] = string.Empty;
-            ShiftSchedule.Rows.InsertAt(drSW, 0);
+                DataRow drSW = ShiftSchedule.NewRow();
+                drSW["ID"] = 0;
+                drSW["Label"] = string.Empty;
+                ShiftSchedule.Rows.InsertAt(drSW, 0);
 
-            cmbWorkShift.DataSource = ShiftSchedule;
-            cmbWorkShift.DisplayMember = "Label";
-            cmbWorkShift.ValueMember = "ID";
-            cmbWorkShift.SelectedIndex = 0;
+                cmbWorkShift.DataSource = ShiftSchedule;
+                cmbWorkShift.DisplayMember = "Label";
+                cmbWorkShift.ValueMember = "ID";
+                cmbWorkShift.SelectedIndex = 0;
 
-            Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
+                Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
 
-            DataRow drPos = Position.NewRow();
-            drPos["ID"] = 0;
-            drPos["PositionCode"] = string.Empty;
-            Position.Rows.InsertAt(drPos, 0);
+                DataRow drPos = Position.NewRow();
+                drPos["ID"] = 0;
+                drPos["PositionCode"] = string.Empty;
+                Position.Rows.InsertAt(drPos, 0);
 
-            cmbPosition.DataSource = Position;
-            cmbPosition.DisplayMember = "PositionCode";
-            cmbPosition.ValueMember = "ID";
-            cmbPosition.SelectedIndex = 0;
+                cmbPosition.DataSource = Position;
+                cmbPosition.DisplayMember = "PositionCode";
+                cmbPosition.ValueMember = "ID";
+                cmbPosition.SelectedIndex = 0;
 
-            Gender = cref.getDataTableRefence("tblPSD_Gender", "ID,GenderCode");
+                Gender = cref.getDataTableRefence("tblPSD_Gender", "ID,GenderCode");
 
-            DataRow drGen = Gender.NewRow();
-            drGen["ID"] = 0;
-            drGen["GenderCode"] = string.Empty;
-            Gender.Rows.InsertAt(drGen, 0);
+                DataRow drGen = Gender.NewRow();
+                drGen["ID"] = 0;
+                drGen["GenderCode"] = string.Empty;
+                Gender.Rows.InsertAt(drGen, 0);
 
-            cmbGender.DataSource = Gender;
-            cmbGender.DisplayMember = "GenderCode";
-            cmbGender.ValueMember = "ID";
-            cmbGender.SelectedIndex = 0;
+                cmbGender.DataSource = Gender;
+                cmbGender.DisplayMember = "GenderCode";
+                cmbGender.ValueMember = "ID";
+                cmbGender.SelectedIndex = 0;
 
-            cmbEmpStatus.DataSource = chelp.getIniList("EmployeeStatus", "Status");
-            cmbEmpStatus.SelectedIndex = 0;
+                cmbEmpStatus.DataSource = chelp.getIniList("EmployeeStatus", "Status");
+                cmbEmpStatus.SelectedIndex = 0;
 
-            cmbCivilStatus.DataSource = chelp.getIniList("CivilStatus", "Status");
-            cmbCivilStatus.SelectedIndex = 0;
+                cmbCivilStatus.DataSource = chelp.getIniList("CivilStatus", "Status");
+                cmbCivilStatus.SelectedIndex = 0;
 
-            cmbSalType.DataSource = chelp.getIniList("SalaryType", "Status");
-            cmbSalType.SelectedIndex = 0;
+                cmbSalType.DataSource = chelp.getIniList("SalaryType", "Status");
+                cmbSalType.SelectedIndex = 0;
 
-            //Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
-            //Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
+                //Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
+                //Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
 
-            //cmbPosEntry.DataSource = Position;
-            //cmbPosEntry.DisplayMember = "PositionCode";
-            //cmbPosEntry.ValueMember = "ID";
-            //cmbPosEntry.SelectedIndex = 0;
+                //cmbPosEntry.DataSource = Position;
+                //cmbPosEntry.DisplayMember = "PositionCode";
+                //cmbPosEntry.ValueMember = "ID";
+                //cmbPosEntry.SelectedIndex = 0;
 
-            //cmbDepEntry.DataSource = Department;
-            //cmbDepEntry.DisplayMember = "DepartmentCode";
-            //cmbDepEntry.ValueMember = "ID";
-            //cmbDepEntry.SelectedIndex = 0;
+                //cmbDepEntry.DataSource = Department;
+                //cmbDepEntry.DisplayMember = "DepartmentCode";
+                //cmbDepEntry.ValueMember = "ID";
+                //cmbDepEntry.SelectedIndex = 0;
+            }else
+            {
 
-            DefaultControls();
+            }
+                DefaultControls();
 
         }
 
@@ -117,15 +124,9 @@ namespace PayrollSystem.Employee
         }
 
         private void EmpMasterFile_Load(object sender, EventArgs e)
-        {
-            if (isMsAccess)
-            {
+        { 
                 InitializedEmpMaster();
                 showAll();            
-            }else
-            {
-
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -303,97 +304,148 @@ namespace PayrollSystem.Employee
 
         private void showAll()
         {
-            dtEmployeeRecords = getAllEmployee("*", " order by Lastname asc");
-            DataTable dtEmployeelist = getAllEmployee("ID,LastName + ',' + FirstName + ' ' + MiddleName as Employee", " order by Lastname asc");
-            dgEmpList.DataSource = dtEmployeelist;
-            dgEmpList.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            if (isMsAccess)
+            {
+                dtEmployeeRecords = getAllEmployee("*", " order by Lastname asc");
+                DataTable dtEmployeelist = getAllEmployee("ID,LastName + ',' + FirstName + ' ' + MiddleName as Employee", " order by Lastname asc");
+                dgEmpList.DataSource = dtEmployeelist;
+                dgEmpList.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }else
+            {
+                dtEmployeeRecords = emprec.dtGetActiveEmployees("*", "tblmgb_employees_isActive = 1");
+                DataTable dtEmplist = emprec.dtGetActiveEmployees("tblmgb_employees_Id as 'ID',Concat(tblmgb_employees_lastname, ',' , tblmgb_employees_firstname) as 'Employee'", "tblmgb_employees_isActive = 1");
 
+               
+                dgEmpList.DataSource = dtEmplist;
+
+            }
+            if (dgEmpList.Rows.Count > 0)
+            {
+                dgEmpList.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
             lblTotalRecords.Text = "Total Record(s) in Database: " + dtEmployeeRecords.Rows.Count.ToString();
         }
 
         private void cmbBoxHelper()
         {
-            Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
-            Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
+            if (isMsAccess)
+            {
+                Position = cref.getDataTableRefence("tblPSD_Position", "ID,PositionCode");
+                Department = cref.getDataTableRefence("tblPSD_Department", "ID,DepartmentCode");
 
-            cmbPosEntry.DataSource = Position;
-            cmbPosEntry.DisplayMember = "PositionCode";
-            cmbPosEntry.ValueMember = "ID";
-            cmbPosEntry.SelectedIndex = 0;
+                cmbPosEntry.DataSource = Position;
+                cmbPosEntry.DisplayMember = "PositionCode";
+                cmbPosEntry.ValueMember = "ID";
+                cmbPosEntry.SelectedIndex = 0;
 
-            cmbDepEntry.DataSource = Department;
-            cmbDepEntry.DisplayMember = "DepartmentCode";
-            cmbDepEntry.ValueMember = "ID";
-            cmbDepEntry.SelectedIndex = 0;
+                cmbDepEntry.DataSource = Department;
+                cmbDepEntry.DisplayMember = "DepartmentCode";
+                cmbDepEntry.ValueMember = "ID";
+                cmbDepEntry.SelectedIndex = 0;
+            }
         }
 
         private void DisplayDetails(int RecordID)
         {
-            DataView dvResult = dtEmployeeRecords.DefaultView;
-            dvResult.RowFilter = "ID=" + RecordID;
+            DataView dvResult = dtEmployeeRecords.AsDataView();
+            dvResult.RowFilter = "tblmgb_employees_Id=" + RecordID;
             if (dvResult.Count > 0)
             {
-                tbRecordID.Text = dvResult[0][0].ToString();
-                tbEmployeeID.Text = dvResult[0][1].ToString();
-                tbBioMetricID.Text = dvResult[0][2].ToString();
-                cmbEmpStatus.Text = dvResult[0][3].ToString();
-                tbLastName.Text = dvResult[0][4].ToString();
-                tbFirstName.Text = dvResult[0][5].ToString();
-                tbMiddleName.Text = dvResult[0][6].ToString();
-                tbAddress.Text = dvResult[0][7].ToString();
-                dtBirth.Text = dvResult[0][8].ToString();
-                cmbGender.Text = dvResult[0][9].ToString();
-
-                int genderIndex = 0;
-                int.TryParse(dvResult[0][10].ToString(), out genderIndex);
-                cmbGender.SelectedIndex = genderIndex;
-
-                tbTelephone.Text = dvResult[0][11].ToString();
-                int positionIndex = 0;
-                int.TryParse(dvResult[0][12].ToString(), out positionIndex);
-                cmbPosEntry.SelectedIndex = positionIndex;
-                int departmentIndex = 0;
-                int.TryParse(dvResult[0][13].ToString(), out departmentIndex);
-                cmbDepEntry.SelectedIndex = departmentIndex;
-
-                tbPEName.Text = dvResult[0][14].ToString();
-                tbPEAdd.Text = dvResult[0][16].ToString();
-                tbPETelephone.Text = dvResult[0][15].ToString();
-                cbSameAs.Checked = dvResult[0][17].ToString() == "1" ? true:false;
-
-                tbSSS.Text = dvResult[0][18].ToString();
-                tbPAGIBIG.Text = dvResult[0][19].ToString();
-                tbPhilhealth.Text = dvResult[0][20].ToString();
-                tbTIN.Text = dvResult[0][21].ToString();    
-                tbSalary.Text = dvResult[0][22].ToString(); 
-                cmbSalType.Text = dvResult[0][23].ToString();
-                tbRatePerDay.Text = dvResult[0][24].ToString(); 
-                dtHired.Text = dvResult[0][25].ToString();
-                dtRegular.Text = dvResult[0][26].ToString();
-                dtEndo.Text = dvResult[0][27].ToString();   
-                tbAccountNumber.Text = dvResult[0][28].ToString();
-                tbBankNumber.Text = dvResult[0][29].ToString();
-                tbCardNumber.Text = dvResult[0][30].ToString();
-                int workShiftIndex = 0;
-                int.TryParse(dvResult[0][34].ToString(), out workShiftIndex);
-
-                if (workShiftIndex != 0)
+                if (isMsAccess)
                 {
-                    DataView dvWS = new DataView(ShiftSchedule);
-                    dvWS.RowFilter = "ID=" + workShiftIndex;
-                    if (dvWS.Count > 0)
+                    tbRecordID.Text = dvResult[0][0].ToString();
+                    tbEmployeeID.Text = dvResult[0][1].ToString();
+                    tbBioMetricID.Text = dvResult[0][2].ToString();
+                    cmbEmpStatus.Text = dvResult[0][3].ToString();
+                    tbLastName.Text = dvResult[0][4].ToString();
+                    tbFirstName.Text = dvResult[0][5].ToString();
+                    tbMiddleName.Text = dvResult[0][6].ToString();
+                    tbAddress.Text = dvResult[0][7].ToString();
+                    dtBirth.Text = dvResult[0][8].ToString();
+                    cmbGender.Text = dvResult[0][9].ToString();
+
+                    int genderIndex = 0;
+                    int.TryParse(dvResult[0][10].ToString(), out genderIndex);
+                    cmbGender.SelectedIndex = genderIndex;
+
+                    tbTelephone.Text = dvResult[0][11].ToString();
+                    int positionIndex = 0;
+                    int.TryParse(dvResult[0][12].ToString(), out positionIndex);
+                    cmbPosEntry.SelectedIndex = positionIndex;
+                    int departmentIndex = 0;
+                    int.TryParse(dvResult[0][13].ToString(), out departmentIndex);
+                    cmbDepEntry.SelectedIndex = departmentIndex;
+
+                    tbPEName.Text = dvResult[0][14].ToString();
+                    tbPEAdd.Text = dvResult[0][16].ToString();
+                    tbPETelephone.Text = dvResult[0][15].ToString();
+                    cbSameAs.Checked = dvResult[0][17].ToString() == "1" ? true : false;
+
+                    tbSSS.Text = dvResult[0][18].ToString();
+                    tbPAGIBIG.Text = dvResult[0][19].ToString();
+                    tbPhilhealth.Text = dvResult[0][20].ToString();
+                    tbTIN.Text = dvResult[0][21].ToString();
+                    tbSalary.Text = dvResult[0][22].ToString();
+                    cmbSalType.Text = dvResult[0][23].ToString();
+                    tbRatePerDay.Text = dvResult[0][24].ToString();
+                    dtHired.Text = dvResult[0][25].ToString();
+                    dtRegular.Text = dvResult[0][26].ToString();
+                    dtEndo.Text = dvResult[0][27].ToString();
+                    tbAccountNumber.Text = dvResult[0][28].ToString();
+                    tbBankNumber.Text = dvResult[0][29].ToString();
+                    tbCardNumber.Text = dvResult[0][30].ToString();
+                    int workShiftIndex = 0;
+                    int.TryParse(dvResult[0][34].ToString(), out workShiftIndex);
+
+                    if (workShiftIndex != 0)
                     {
-                        cmbWorkShift.Text = dvWS[0]["Label"].ToString();
-                        tbStartTime.Text = DateTime.Parse(dvWS[0].Row["StartTime"].ToString()).ToShortTimeString();
-                        tbEndTime.Text = DateTime.Parse(dvWS[0].Row["EndTime"].ToString()).ToShortTimeString();
+                        DataView dvWS = new DataView(ShiftSchedule);
+                        dvWS.RowFilter = "ID=" + workShiftIndex;
+                        if (dvWS.Count > 0)
+                        {
+                            cmbWorkShift.Text = dvWS[0]["Label"].ToString();
+                            tbStartTime.Text = DateTime.Parse(dvWS[0].Row["StartTime"].ToString()).ToShortTimeString();
+                            tbEndTime.Text = DateTime.Parse(dvWS[0].Row["EndTime"].ToString()).ToShortTimeString();
+                        }
+                    }
+                    else
+                    {
+                        cmbWorkShift.Text = string.Empty;
+                        tbStartTime.Text = string.Empty;
+                        tbEndTime.Text = string.Empty;
                     }
                 }else
                 {
-                    cmbWorkShift.Text = string.Empty;
-                    tbStartTime.Text = string.Empty;
-                    tbEndTime.Text = string.Empty;
-                }
+                    tbRecordID.Text = dvResult[0][0].ToString();
+                    tbEmployeeID.Text = dvResult[0][1].ToString();
+                    cmbEmpStatus.Text = dvResult[0][2].ToString();
+                    tbBioMetricID.Text = dvResult[0][1].ToString();
+                    tbLastName.Text = dvResult[0][3].ToString();
+                    tbFirstName.Text = dvResult[0][4].ToString();
+                    tbMiddleName.Text = dvResult[0][5].ToString();
+                    tbAddress.Text = dvResult[0][6].ToString();
+                    if(dvResult[0][7].ToString() != "01/01/0001 12:00:00 am")
+                        dtBirth.Text = chelp.getDate(dvResult[0][7].ToString()).ToShortDateString();
+                    cmbGender.Text = dvResult[0][9].ToString();
+                    tbTelephone.Text = dvResult[0][10].ToString();
+                    tbPEName.Text = dvResult[0][13].ToString();
+                    tbPEAdd.Text = dvResult[0][14].ToString();
+                    tbPETelephone.Text = dvResult[0][15].ToString();
 
+                    tbSSS.Text = dvResult[0][16].ToString();
+                    tbPAGIBIG.Text = dvResult[0][17].ToString();
+                    tbPhilhealth.Text = dvResult[0][18].ToString();
+                    tbTIN.Text = dvResult[0][19].ToString();
+                    tbSalary.Text = dvResult[0][20].ToString();
+                    cmbSalType.Text = dvResult[0][21].ToString();
+                    tbRatePerDay.Text = dvResult[0][22].ToString();
+                    dtHired.Text = dvResult[0][25].ToString();
+                    dtRegular.Text = dvResult[0][26].ToString();
+                    dtEndo.Text = dvResult[0][27].ToString();
+                    tbAccountNumber.Text = dvResult[0][26].ToString();
+                    tbBankNumber.Text = dvResult[0][27].ToString();
+                    tbCardNumber.Text = dvResult[0][28].ToString();
+                }
             }
             else
             {
@@ -497,6 +549,14 @@ namespace PayrollSystem.Employee
             {
 
             }            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ImportData.frmImportData ImportData = new ImportData.frmImportData();
+            ImportData.TemplateName = "EmployeeRecordsTemplate.xlsx";
+            ImportData.processCode = "EmployeeRecords";
+            ImportData.ShowDialog();
         }
     }
 }

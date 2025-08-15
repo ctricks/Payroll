@@ -82,27 +82,26 @@ namespace PayrollSystem.Database
 
             string DatabaseFilePath = DatabasePath + "\\" + DatabaseName;
 
-            if (!Directory.Exists(DatabasePath))
-            {
-                DatabasePath = Environment.CurrentDirectory;
-                DatabaseFilePath = DatabasePath + "\\" + DatabaseName;
-            }
-
-            if (!File.Exists(DatabaseFilePath))
-            {
-                MessageBox.Show("Database File:" + DatabaseFilePath, "Error: Database file is not found. Please ask your Administrator", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return "";
-            }
-
             string Connstring = string.Empty;
 
             if (MsAccess)
             {
+                if (!Directory.Exists(DatabasePath))
+                {
+                    DatabasePath = Environment.CurrentDirectory;
+                    DatabaseFilePath = DatabasePath + "\\" + DatabaseName;
+                }
+
+                if (!File.Exists(DatabaseFilePath))
+                {
+                    MessageBox.Show("Database File:" + DatabaseFilePath, "Error: Database file is not found. Please ask your Administrator", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "";
+                }
                 Connstring = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + DatabaseFilePath + ";";
             }
             else
             {
-                Connstring = "Server="+MysqlServer+";Database="+MysqlDatabase+";Uid="+MysqlUsername+";Pwd="+MysqlPassword+";Port="+MysqlPort+";";
+                Connstring = "Server="+MysqlServer+";Database="+MysqlDatabase+";Uid="+MysqlUsername+";Pwd="+MysqlPassword+";Port="+MysqlPort+ ";Convert Zero Datetime=True;";
             }
             myConnectionString = Connstring;
             return Connstring;
@@ -289,6 +288,7 @@ namespace PayrollSystem.Database
                 {
                     return dt;
                 }
+                myConnectionString = setConnectionString();
                 string ConnString = myConnectionString; //setConnectionString(DatabaseName).ToString();  
                 //using (OleDbConnection dataConnection = new OleDbConnection(ConnString))
                 //{
@@ -486,7 +486,31 @@ namespace PayrollSystem.Database
             return dsFinal;
         }
 
+        public int InsertQuery(string Query)
+        {
+            int retVal = 0;
+            try
+            {
+                myConnectionString = setConnectionString();
+                using(MySqlConnection conn = new MySqlConnection(myConnectionString))
+                {
+                    using(MySqlCommand cmd = new MySqlCommand(Query,conn))
+                    {
+                        conn.Open();
+                        retVal = cmd.ExecuteNonQuery();
+                        if(conn.State == ConnectionState.Open)
+                        {
+                            conn.Close();
+                        }    
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+            return retVal;
+        }
         public void ExecuteSPLoginUsers(string SPName,string ConnectionString,string Username, string Password,out int RoleID,out int UserID)
         {
             RoleID = 0;UserID = 0;
